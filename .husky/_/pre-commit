@@ -1,0 +1,33 @@
+#!/usr/bin/env sh
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E "\.(js|ts|jsx|tsx)$")
+
+if [[ "$STAGED_FILES" = "" ]]; then
+  exit 0
+fi
+
+PASS=true
+
+echo "🔄 Validating Javascript:"
+
+for FILE in $STAGED_FILES
+do
+  yarn eslint "$FILE"
+
+  if [[ "$?" == 0 ]]; then
+    echo "✅ ESLint Passed: $FILE"
+  else
+    echo "❌ ESLint Failed: $FILE"
+    PASS=false
+  fi
+done
+
+echo "🏁 Javascript validation completed!"
+
+if ! $PASS; then
+  echo "❌ COMMIT FAILED: Your commit contains files that should pass ESLint but do not. Please fix the ESLint errors and try again"
+  exit 1
+else
+  echo "✅ COMMIT SUCCEEDED"
+fi
+
+exit $?

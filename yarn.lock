@@ -4827,6 +4827,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"husky@npm:^9.0.9":
+  version: 9.0.9
+  resolution: "husky@npm:9.0.9"
+  bin:
+    husky: bin.mjs
+  checksum: 8ce04bbe983b326d27abe9bde972040b5e81e04b375c3f7183446f355fef85cb0b58a4aa3fae9c219f376e477c0b0b7fd4758b84acdeb811d3e77278fdf45689
+  languageName: node
+  linkType: hard
+
 "iconv-lite@npm:0.4.24":
   version: 0.4.24
   resolution: "iconv-lite@npm:0.4.24"
@@ -5822,6 +5831,7 @@ __metadata:
     eslint-plugin-react-hooks: "npm:^4.6.0"
     eslint-plugin-simple-import-sort: "npm:^10.0.0"
     html-webpack-plugin: "npm:^5.6.0"
+    husky: "npm:^9.0.9"
     prettier: "npm:^3.2.4"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"

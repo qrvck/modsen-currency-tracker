@@ -10,7 +10,8 @@
     "build": "webpack --config ./webpack/webpack.prod.js",
     "analyze": "yarn build --json > stats.json && yarn webpack-bundle-analyzer stats.json ./build",
     "lint": "eslint --fix \"./src//*.{ts,tsx,json}\"",
-    "format": "prettier --write \"./src//*.{ts,tsx,json,md}\""
+    "format": "prettier --write \"./src//*.{ts,tsx,json,md}\"",
+    "postinstall": "husky"
   },
   "devDependencies": {
     "@babel/core": "^7.23.9",
@@ -35,6 +36,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "html-webpack-plugin": "^5.6.0",
+    "husky": "^9.0.9",
     "prettier": "^3.2.4",
     "react-refresh": "^0.14.0",
     "typescript": "^5.3.3",
