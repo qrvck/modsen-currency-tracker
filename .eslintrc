@@ -4,12 +4,15 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
+
   "settings": {
     "react": {
       "version": "detect"
     }
   },
+
   "plugins": ["@typescript-eslint", "simple-import-sort"],
+
   "extends": [
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
@@ -19,16 +22,11 @@
     "prettier",
     "plugin:prettier/recommended"
   ],
+
   "rules": {
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
-    "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": ["error"],
-    "@typescript-eslint/no-var-requires": "off",
-    "react/prop-types": "off",
-    "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off"
+    "@typescript-eslint/no-var-requires": "off"
   },
 
   "root": true
