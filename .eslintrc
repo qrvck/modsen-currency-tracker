@@ -20,7 +20,8 @@
     "plugin:import/warnings",
     "plugin:import/typescript",
     "prettier",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:jsx-a11y/recommended"
   ],
 
   "rules": {
