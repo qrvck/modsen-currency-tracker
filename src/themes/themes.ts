@@ -9,6 +9,7 @@ const media = {
 const staticColors = {
   orange: '#ff971d',
   greenGradient: '92deg, #00ce2c 0%, #aedf23 49.26%, #a3dc00 100%',
+  lime: '#aedf23',
 };
 
 const fonts = {
