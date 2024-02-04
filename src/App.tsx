@@ -9,7 +9,7 @@ function App() {
   return (
     <Routes>
       <Route element={<Layout />}>
-        <Route index path={RoutPathEnum.HOME_PAGE} element={<MainPage />} />
+        <Route index path={RoutPathEnum.MAIN_PAGE} element={<MainPage />} />
         <Route path={RoutPathEnum.TIMELINE_PAGE} element={<TimelinePage />} />
         <Route path={RoutPathEnum.BANK_CARD_PAGE} element={<BankCardPage />} />
         <Route path={RoutPathEnum.CONTACTS_PAGE} element={<ContactsPage />} />
