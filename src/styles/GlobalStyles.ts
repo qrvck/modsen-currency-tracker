@@ -9,12 +9,16 @@ const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     font-family: ${({ theme }) => theme.fonts.primary};
-    font-size: 14px;
+    font-size: 12px;
     color: ${({ theme }) => theme.colors.inverted.first};
     background-color: ${({ theme }) => theme.colors.inverted.second};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-y: scroll;
+
+    @media (${({ theme }) => theme.media.medium}) {
+      font-size: 32px;
+  }
   }
 
   #root {
