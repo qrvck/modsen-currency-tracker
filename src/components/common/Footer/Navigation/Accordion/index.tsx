@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 
 import sprite from '@/assets/icons/sprite.svg';
 
-import { ArrowIcon, ChildrenWrapper, Title } from './styled';
+import { ArrowIcon, ChildrenWrapper, Title, Wrapper } from './styled';
 import { IAccordion } from './types';
 
 function Accordion({ title, animationDuration = 0.3, children }: IAccordion) {
@@ -36,7 +36,7 @@ function Accordion({ title, animationDuration = 0.3, children }: IAccordion) {
   };
 
   return (
-    <div>
+    <Wrapper>
       <Title $isOpen={isOpen} onClick={handleClickOnTitle}>
         {title}
         <ArrowIcon $animationDuration={animationDuration} $isRotate={isOpen}>
@@ -50,7 +50,7 @@ function Accordion({ title, animationDuration = 0.3, children }: IAccordion) {
       >
         {children}
       </ChildrenWrapper>
-    </div>
+    </Wrapper>
   );
 }
 

@@ -1,8 +1,22 @@
 import { styled } from 'styled-components';
 
+const Wrapper = styled.div`
+  @media (${({ theme }) => theme.media.extraLarge}) {
+    width: 40%;
+  }
+`;
+
 const Logo = styled.div`
   display: flex;
   align-items: center;
+
+  @media (${({ theme }) => theme.media.small}) {
+    justify-content: center;
+  }
+
+  @media (${({ theme }) => theme.media.extraLarge}) {
+    justify-content: flex-start;
+  }
 `;
 
 const LogoImg = styled.img`
@@ -33,6 +47,8 @@ const LogoText = styled.p`
 
 const InfoText = styled.p`
   display: none;
+  margin-top: 36px;
+
   font-size: 24px;
   line-height: 36px;
   font-weight: 300;
@@ -42,4 +58,4 @@ const InfoText = styled.p`
   }
 `;
 
-export { InfoText, Logo, LogoImg, LogoText };
+export { InfoText, Logo, LogoImg, LogoText, Wrapper };

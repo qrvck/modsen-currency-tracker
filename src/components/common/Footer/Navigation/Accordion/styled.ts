@@ -1,5 +1,9 @@
 import { styled } from 'styled-components';
 
+const Wrapper = styled.div`
+  border-bottom: 1px solid #607d94;
+`;
+
 const Title = styled.button<{ $isOpen: boolean }>`
   width: 100%;
   padding: 15px 0;
@@ -31,4 +35,4 @@ const ChildrenWrapper = styled.div<{ $animationDuration: number }>`
   transition-duration: ${({ $animationDuration }) => `${$animationDuration}s`};
 `;
 
-export { ArrowIcon, ChildrenWrapper, Title };
+export { ArrowIcon, ChildrenWrapper, Title, Wrapper };

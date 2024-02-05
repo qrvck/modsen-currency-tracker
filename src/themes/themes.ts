@@ -1,5 +1,5 @@
 const media = {
-  extraExtraLarge: '(min-width: 1440px)',
+  extraExtraLarge: '(min-width: 1435px)',
   extraLarge: '(min-width: 1200px)',
   large: '(min-width: 992px)',
   medium: '(min-width: 768px)',
