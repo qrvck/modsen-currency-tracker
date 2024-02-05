@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 export interface IAccordion {
-  title: string;
+  title: ReactNode;
+  dropDownContent: ReactNode;
   animationDuration?: number;
-  children: ReactNode;
 }

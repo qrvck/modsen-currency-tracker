@@ -5,11 +5,9 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.button<{ $isOpen: boolean }>`
+  position: relative;
   width: 100%;
-  padding: 15px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding-right: 20px;
 
   font-size: 16px;
   line-height: 24px;
@@ -18,6 +16,12 @@ const Title = styled.button<{ $isOpen: boolean }>`
 `;
 
 const ArrowIcon = styled.svg<{ $animationDuration: number; $isRotate: boolean }>`
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
   width: 20px;
   height: 20px;
 

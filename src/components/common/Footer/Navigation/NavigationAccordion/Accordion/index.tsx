@@ -5,7 +5,7 @@ import sprite from '@/assets/icons/sprite.svg';
 import { ArrowIcon, ChildrenWrapper, Title, Wrapper } from './styled';
 import { IAccordion } from './types';
 
-function Accordion({ title, animationDuration = 0.3, children }: IAccordion) {
+function Accordion({ title, animationDuration = 0.3, dropDownContent }: IAccordion) {
   const childrenWrapperRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -48,7 +48,7 @@ function Accordion({ title, animationDuration = 0.3, children }: IAccordion) {
         onTransitionEnd={handleTransitionEnd}
         ref={childrenWrapperRef}
       >
-        {children}
+        {dropDownContent}
       </ChildrenWrapper>
     </Wrapper>
   );
