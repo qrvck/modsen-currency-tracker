@@ -1,15 +1,34 @@
 import { styled } from 'styled-components';
 
-const Title = styled.button`
+const Title = styled.button<{ $isOpen: boolean }>`
   width: 100%;
   padding: 15px 0;
-  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
 `;
 
-const ChildrenWrapper = styled.div`
+const ArrowIcon = styled.svg<{ $animationDuration: number; $isRotate: boolean }>`
+  width: 20px;
+  height: 20px;
+
+  color: ${({ theme }) => theme.colors.inverted.first};
+
+  transform: rotate(${({ $isRotate }) => ($isRotate ? '180deg' : '0deg')});
+  transition: transform ease;
+  transition-duration: ${({ $animationDuration }) => `${$animationDuration}s`};
+`;
+
+const ChildrenWrapper = styled.div<{ $animationDuration: number }>`
   height: 0;
   overflow: hidden;
-  transition: height 0.3s ease;
+  transition: height ease;
+  transition-duration: ${({ $animationDuration }) => `${$animationDuration}s`};
 `;
 
-export { ChildrenWrapper, Title };
+export { ArrowIcon, ChildrenWrapper, Title };

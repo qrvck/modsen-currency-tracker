@@ -1,10 +1,13 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 
-import { ChildrenWrapper, Title } from './styled';
+import sprite from '@/assets/icons/sprite.svg';
+
+import { ArrowIcon, ChildrenWrapper, Title } from './styled';
 import { IAccordion } from './types';
 
-function Accordion({ title, children }: IAccordion) {
+function Accordion({ title, animationDuration = 0.3, children }: IAccordion) {
   const childrenWrapperRef = useRef<HTMLDivElement>(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleClickOnTitle = () => {
     const childrenWrapper = childrenWrapperRef.current;
@@ -18,6 +21,8 @@ function Accordion({ title, children }: IAccordion) {
       } else {
         childrenWrapper.style.height = `${childrenWrapper.scrollHeight}px`;
       }
+
+      setIsOpen((prevState) => !prevState);
     }
   };
 
@@ -32,8 +37,17 @@ function Accordion({ title, children }: IAccordion) {
 
   return (
     <div>
-      <Title onClick={handleClickOnTitle}>{title}</Title>
-      <ChildrenWrapper onTransitionEnd={handleTransitionEnd} ref={childrenWrapperRef}>
+      <Title $isOpen={isOpen} onClick={handleClickOnTitle}>
+        {title}
+        <ArrowIcon $animationDuration={animationDuration} $isRotate={isOpen}>
+          <use href={sprite + '#arrow'} />
+        </ArrowIcon>
+      </Title>
+      <ChildrenWrapper
+        $animationDuration={animationDuration}
+        onTransitionEnd={handleTransitionEnd}
+        ref={childrenWrapperRef}
+      >
         {children}
       </ChildrenWrapper>
     </div>
