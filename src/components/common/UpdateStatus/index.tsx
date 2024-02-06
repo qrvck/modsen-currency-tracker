@@ -4,7 +4,7 @@ import { Container } from '../Container';
 import { ERROR_MESSAGE, SUCCESS_MESSAGE, UPDATE_MESSAGE } from './constants';
 import { StatusCircle, StatusText, Wrapper } from './styles';
 
-function UpdateTime() {
+function UpdateStatus() {
   const time = '11:59pm';
   // eslint-disable-next-line prefer-const
   let status = 'success';
@@ -25,4 +25,4 @@ function UpdateTime() {
   );
 }
 
-export { UpdateTime };
+export { UpdateStatus };
