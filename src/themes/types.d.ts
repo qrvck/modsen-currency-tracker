@@ -33,6 +33,7 @@ declare module 'styled-components' {
       greenGradient: string;
       lime: string;
       darkGreen: string;
+      red: string;
     };
   }
 }
