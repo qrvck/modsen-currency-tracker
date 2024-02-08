@@ -1,7 +1,14 @@
 import { styled } from 'styled-components';
 
 const Section = styled.section`
-  background: linear-gradient(225deg, #121212 0%, rgba(36, 121, 64, 0) 100%);
+  background: linear-gradient(
+    225deg,
+    rgba(36, 121, 64, 0) 0%,
+    rgba(31, 95, 52, 0.25) 25.28%,
+    rgba(27, 69, 41, 0.5) 49.15%,
+    rgba(31, 95, 52, 0.25) 74.72%,
+    rgba(36, 121, 64, 0) 100%
+  );
 `;
 
 const Wrapper = styled.div`
