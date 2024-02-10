@@ -5,7 +5,7 @@ import { getCurrentRates } from '@/api/currentRates';
 import { UpdateStatus } from '@/components/common/UpdateStatus';
 import { IRootState } from '@/store';
 import { setCurrentRates } from '@/store/slices/currentRatesSlice';
-import { getInitialUpdateTimeStatusState, getUpdateTime, isLast6HoursData } from '@/utils';
+import { getInitialUpdateTimeStatusState, getUpdateTime, isRelevantData } from '@/utils';
 
 function MainPage() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -26,14 +26,14 @@ function MainPage() {
       }
     };
 
-    if (!isLast6HoursData(updateTimestamp)) loadCurrentRates();
+    if (!isRelevantData(updateTimestamp)) loadCurrentRates();
   }, [dispatch, updateTimestamp]);
 
   return (
     <>
       <UpdateStatus status={status} time={getUpdateTime(updateTimestamp)} />
       <p>MainPage</p>
-      {isLast6HoursData(updateTimestamp) && <p>{123}</p>}
+      {isRelevantData(updateTimestamp) && <p>{123}</p>}
     </>
   );
 }

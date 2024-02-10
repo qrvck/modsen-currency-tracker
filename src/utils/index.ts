@@ -1,6 +1,6 @@
-function isLast6HoursData(updateTimestamp: number) {
-  const millisecondsIn6Hours = 3600000;
-  return Date.now() - updateTimestamp < millisecondsIn6Hours;
+function isRelevantData(updateTimestamp: number) {
+  const dataRelevanceInMilliseconds = 21600000;
+  return Date.now() - updateTimestamp < dataRelevanceInMilliseconds;
 }
 
 function getUpdateTime(updateTimestamp: number) {
@@ -9,7 +9,7 @@ function getUpdateTime(updateTimestamp: number) {
 }
 
 function getInitialUpdateTimeStatusState(timestamp: number) {
-  return isLast6HoursData(timestamp) ? 'updated' : 'updating';
+  return isRelevantData(timestamp) ? 'updated' : 'updating';
 }
 
-export { getInitialUpdateTimeStatusState, getUpdateTime, isLast6HoursData };
+export { getInitialUpdateTimeStatusState, getUpdateTime, isRelevantData };
