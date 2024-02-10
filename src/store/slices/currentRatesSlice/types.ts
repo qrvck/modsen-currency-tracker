@@ -2,7 +2,9 @@ import { PayloadAction } from '@reduxjs/toolkit';
 
 import { ICurrentRates } from '@/types/currentRates.types';
 
-type IInitialState = ICurrentRates;
+interface IInitialState extends ICurrentRates {
+  updateTimestamp: number;
+}
 
 type ISetCurrentRatesAction = PayloadAction<ICurrentRates>;
 

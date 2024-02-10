@@ -5,6 +5,7 @@ import { IInitialState, ISetCurrentRatesAction } from './types';
 const initialState: IInitialState = {
   asset_id_base: '',
   rates: [],
+  updateTimestamp: 0,
 };
 
 const currentRatesSlice = createSlice({
@@ -16,6 +17,7 @@ const currentRatesSlice = createSlice({
 
       state.asset_id_base = asset_id_base;
       state.rates = rates;
+      state.updateTimestamp = Date.now();
     },
   },
 });
