@@ -1,22 +1,19 @@
 import React from 'react';
 
 import { Container } from '../Container';
-import { ERROR_MESSAGE, SUCCESS_MESSAGE, UPDATE_MESSAGE } from './constants';
+import { ERROR_MESSAGE, UPDATE_MESSAGE, UPDATED_MESSAGE } from './constants';
 import { StatusCircle, StatusText, Wrapper } from './styles';
+import { IUpdateStatus } from './types';
 
-function UpdateStatus() {
-  const time = '11:59pm';
-  // eslint-disable-next-line prefer-const
-  let status = 'success';
-
+function UpdateStatus({ status, time }: IUpdateStatus) {
   return (
     <section>
       <Container>
         <Wrapper>
-          <StatusCircle $status={'success'} />
+          <StatusCircle $status={status} />
           <StatusText>
-            {status === 'success' && `${SUCCESS_MESSAGE}${time}`}
-            {status === 'update' && UPDATE_MESSAGE}
+            {status === 'updated' && `${UPDATED_MESSAGE}${time}`}
+            {status === 'updating' && UPDATE_MESSAGE}
             {status === 'error' && ERROR_MESSAGE}
           </StatusText>
         </Wrapper>
