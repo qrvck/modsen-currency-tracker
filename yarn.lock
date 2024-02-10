@@ -5973,6 +5973,7 @@ __metadata:
     react-redux: "npm:^9.1.0"
     react-refresh: "npm:^0.14.0"
     react-router-dom: "npm:^6.21.3"
+    redux-persist: "npm:^6.0.0"
     styled-components: "npm:^6.1.8"
     typescript: "npm:^5.3.3"
     webpack: "npm:^5.90.0"
@@ -6788,6 +6789,15 @@ __metadata:
   dependencies:
     resolve: "npm:^1.20.0"
   checksum: 1a30074124a22abbd5d44d802dac26407fa72a0a95f162aa5504ba8246bc5452f8b1a027b154d9bdbabcd8764920ff9333d934c46a8f17479c8912e92332f3ff
+  languageName: node
+  linkType: hard
+
+"redux-persist@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "redux-persist@npm:6.0.0"
+  peerDependencies:
+    redux: ">4.0.0"
+  checksum: 8242d265ab8d28bbc95cf2dc2a05b869eb67aa309b1ed08163c926f3af56dd8eb1ea62118286083461b8ef2024d3b349fd264e5a62a70eb2e74d068c832d5bf2
   languageName: node
   linkType: hard
 
