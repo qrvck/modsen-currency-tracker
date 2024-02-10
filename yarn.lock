@@ -5973,6 +5973,7 @@ __metadata:
     react-redux: "npm:^9.1.0"
     react-refresh: "npm:^0.14.0"
     react-router-dom: "npm:^6.21.3"
+    redux: "npm:^5.0.1"
     redux-persist: "npm:^6.0.0"
     styled-components: "npm:^6.1.8"
     typescript: "npm:^5.3.3"
