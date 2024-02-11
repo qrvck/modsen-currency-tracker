@@ -1,10 +1,12 @@
 import { styled } from 'styled-components';
 
 const Wrapper = styled.div`
+  width: 250px;
   padding: 20px;
   text-align: center;
 
   @media (${({ theme }) => theme.media.medium}) {
+    width: 550px;
     padding: 35px;
   }
 `;
@@ -28,11 +30,9 @@ const ConverterWrapper = styled.div`
   padding: 10px 0;
   display: flex;
   justify-content: center;
-  width: 250px;
 
   @media (${({ theme }) => theme.media.medium}) {
     padding: 20px 0;
-    width: 550px;
   }
 `;
 
@@ -46,4 +46,16 @@ const Select = styled.select`
   }
 `;
 
-export { ConverterText, ConverterWrapper, Select, Subtitle, Title, Wrapper };
+const TextHint = styled.p`
+  font-size: 10px;
+  margin-top: 15px;
+
+  color: ${({ theme }) => theme.colors.inverted.fifth};
+
+  @media (${({ theme }) => theme.media.medium}) {
+    margin-top: 25px;
+    font-size: 18px;
+  }
+`;
+
+export { ConverterText, ConverterWrapper, Select, Subtitle, TextHint, Title, Wrapper };

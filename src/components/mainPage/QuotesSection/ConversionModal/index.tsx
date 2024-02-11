@@ -8,8 +8,16 @@ import { IRootState } from '@/store';
 import { setConvertibleCurrencies } from '@/store/slices/convertCurrencySlice';
 import { isRelevantData } from '@/utils';
 
-import { CONVERTER_TEXT, DECIMAL_NUMBER, OUTPUT_TEXT, SUBTITLE_PART_1, SUBTITLE_PART_2 } from './constants';
-import { ConverterText, ConverterWrapper, Select, Subtitle, Title, Wrapper } from './styled';
+import {
+  CONVERTER_TEXT,
+  DECIMAL_NUMBER,
+  OUTPUT_TEXT,
+  SUBTITLE_PART_1,
+  SUBTITLE_PART_2,
+  TEXT_HINT_PART_1,
+  TEXT_HINT_PART_2,
+} from './constants';
+import { ConverterText, ConverterWrapper, Select, Subtitle, TextHint, Title, Wrapper } from './styled';
 import { IConversionModal } from './types';
 
 function ConversionModal({ currencyID, onClose }: IConversionModal) {
@@ -78,6 +86,12 @@ function ConversionModal({ currencyID, onClose }: IConversionModal) {
           {!convertedRate && !isError && 'loading...'}
           {isError && 'error'}
         </p>
+
+        {convertedRate && !isError && (
+          <TextHint>
+            {TEXT_HINT_PART_1} <br /> {convertedRate} {selectValue} {TEXT_HINT_PART_2} {currencyID}
+          </TextHint>
+        )}
       </Wrapper>
     </Modal>
   );
