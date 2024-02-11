@@ -14,7 +14,7 @@ const InnerBackground = styled.div`
   right: 0;
   top: 0;
   bottom: 0;
-  background-color: ${({ theme }) => theme.colors.inverted.first};
+  background-color: ${({ theme }) => theme.colors.inverted.second};
   opacity: 0;
   transition: opacity 0.3s ease;
 
@@ -27,9 +27,6 @@ const ModalWrapper = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-
-  max-width: 1050px;
-  width: 100%;
 
   transform: translate(-50%, -50%) scale(0.9);
   opacity: 0;
@@ -45,9 +42,10 @@ const ModalWrapper = styled.div`
 
 const Window = styled.div`
   position: relative;
-  padding-bottom: 50%;
   margin: 25px;
-  background-color: ${({ theme }) => theme.colors.darkGreen};
+  background-color: ${({ theme }) => theme.colors.inverted.ninth};
+  border-radius: 8px;
+  border: 1px solid ${({ theme }) => theme.colors.inverted.fourth};
 
   @media (${({ theme }) => theme.media.medium}) {
     margin: 35px;
@@ -61,8 +59,8 @@ const CloseButton = styled.button`
   width: 26px;
   height: 26px;
 
-  background-color: ${({ theme }) => theme.colors.red};
   border-radius: 50%;
+  border: 2px solid ${({ theme }) => theme.colors.inverted.first};
 
   @media (${({ theme }) => theme.media.medium}) {
     top: 3px;
@@ -88,7 +86,7 @@ const CloseButton = styled.button`
     width: 39%;
     height: 4px;
 
-    background-color: ${({ theme }) => theme.colors.orange};
+    background-color: ${({ theme }) => theme.colors.inverted.first};
     border-radius: 3px;
 
     transform: rotate(45deg);
