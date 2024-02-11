@@ -27,6 +27,7 @@ declare module 'styled-components' {
         sixth: string;
         seventh: string;
         eighth: string;
+        ninth: string;
       };
 
       orange: string;
