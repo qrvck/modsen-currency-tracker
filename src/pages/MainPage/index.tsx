@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { getCurrentRates } from '@/api/currentRates';
 import { UpdateStatus } from '@/components/common/UpdateStatus';
+import { QuotesSection } from '@/components/mainPage/QuotesSection';
 import { IRootState } from '@/store';
 import { setCurrentRates } from '@/store/slices/currentRatesSlice';
 import { getInitialUpdateTimeStatusState, getUpdateTime, isRelevantData } from '@/utils';
@@ -32,8 +33,7 @@ function MainPage() {
   return (
     <>
       <UpdateStatus status={status} time={getUpdateTime(updateTimestamp)} />
-      <p>MainPage</p>
-      {isRelevantData(updateTimestamp) && <p>{123}</p>}
+      <QuotesSection rates={rates} />
     </>
   );
 }

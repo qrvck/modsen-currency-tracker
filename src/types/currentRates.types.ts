@@ -9,4 +9,4 @@ interface IRate {
   rate: number;
 }
 
-export type { ICurrentRates };
+export type { ICurrentRates, IRate };

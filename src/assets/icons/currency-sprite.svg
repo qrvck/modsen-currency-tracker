@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+
+  <symbol id="USDC" viewBox="0 0 80 80">
+    <rect width="80" height="80" rx="8" fill="#2A4628" />
+    <g clip-path="url(#clip0_1_1140)">
+      <path
+        d="M49.4941 31.0715C49.0794 29.8949 48.3221 28.8693 47.3197 28.1267C46.3172 27.3842 45.1155 26.9586 43.8691 26.9048H35.5358C33.8782 26.9048 32.2885 27.5633 31.1163 28.7354C29.9442 29.9075 29.2858 31.4972 29.2858 33.1548C29.2858 34.8124 29.9442 36.4021 31.1163 37.5742C32.2885 38.7463 33.8782 39.4048 35.5358 39.4048H43.8691C45.5267 39.4048 47.1164 40.0633 48.2885 41.2354C49.4606 42.4075 50.1191 43.9972 50.1191 45.6548C50.1191 47.3124 49.4606 48.9021 48.2885 50.0742C47.1164 51.2463 45.5267 51.9048 43.8691 51.9048H35.5358C34.2894 51.851 33.0877 51.4254 32.0852 50.6828C31.0827 49.9403 30.3254 48.9147 29.9108 47.7381"
+        stroke="white" fill="#2A4628" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M40 20.9524V27.2024M40 52.2024V58.4524" stroke="white" stroke-width="3.5" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </g>
+    <defs>
+      <clipPath id="clip0_1_1140">
+        <rect width="50" height="50" fill="white" transform="translate(15 15)" />
+      </clipPath>
+    </defs>
+  </symbol>
+
+  <symbol id="CAD" viewBox="0 0 80 80">
+    <rect width="80" height="80" rx="8" fill="#452534" />
+    <g clip-path="url(#clip0_1_1211)">
+      <path
+        d="M58.75 27.5H50.4166C48.759 27.5 47.1693 28.1585 45.9972 29.3306C44.8251 30.5027 44.1666 32.0924 44.1666 33.75C44.1666 35.4076 44.8251 36.9973 45.9972 38.1694C47.1693 39.3415 48.759 40 50.4166 40H52.5C54.1576 40 55.7473 40.6585 56.9194 41.8306C58.0915 43.0027 58.75 44.5924 58.75 46.25C58.75 47.9076 58.0915 49.4973 56.9194 50.6694C55.7473 51.8415 54.1576 52.5 52.5 52.5H44.1666"
+        stroke="white" fill="#452534" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path
+        d="M35.8333 52.5H33.75C30.4348 52.5 27.2554 51.183 24.9112 48.8388C22.567 46.4946 21.25 43.3152 21.25 40C21.25 36.6848 22.567 33.5054 24.9112 31.1612C27.2554 28.817 30.4348 27.5 33.75 27.5H35.8333"
+        stroke="white" fill="#452534" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M50.4166 56.6667V52.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M52.5 27.5V23.3333" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <defs>
+      <clipPath id="clip0_1_1211">
+        <rect width="50" height="50" fill="white" transform="translate(15 15)" />
+      </clipPath>
+    </defs>
+  </symbol>
+
+  <symbol id="AUD" viewBox="0 0 80 80">
+    <rect width="80" height="80" rx="8" fill="#142E67" />
+    <g clip-path="url(#clip0_1_1196)">
+      <path
+        d="M21.25 52.5L28.0812 28.5917C28.1747 28.2654 28.3718 27.9785 28.6428 27.7742C28.9138 27.57 29.244 27.4595 29.5833 27.4595C29.9227 27.4595 30.2528 27.57 30.5238 27.7742C30.7948 27.9785 30.992 28.2654 31.0854 28.5917L37.9167 52.5"
+        stroke="white" fill="#142E67" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path
+        d="M58.75 27.5H50.4166C48.759 27.5 47.1693 28.1585 45.9972 29.3306C44.8251 30.5027 44.1666 32.0924 44.1666 33.75C44.1666 35.4076 44.8251 36.9973 45.9972 38.1694C47.1693 39.3415 48.759 40 50.4166 40H52.5C54.1576 40 55.7473 40.6585 56.9194 41.8306C58.0915 43.0027 58.75 44.5924 58.75 46.25C58.75 47.9076 58.0915 49.4973 56.9194 50.6694C55.7473 51.8415 54.1576 52.5 52.5 52.5H44.1666"
+        stroke="white" fill="#142E67" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M50.4166 56.6667V52.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M52.5 27.5V23.3333" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M24.375 44.1667H34.7917" stroke="white" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </g>
+    <defs>
+      <clipPath id="clip0_1_1196">
+        <rect width="50" height="50" fill="white" transform="translate(15 15)" />
+      </clipPath>
+    </defs>
+  </symbol>
+
+  <symbol id="EUR" viewBox="0 0 80 80">
+    <rect width="80" height="80" rx="8" fill="#1D324B" />
+    <g clip-path="url(#clip0_1_1164)">
+      <path
+        d="M50.8334 29.5834C49.0752 27.5736 46.8476 26.2142 44.4299 25.6756C42.0122 25.1369 39.512 25.443 37.2428 26.5554C34.9736 27.6679 33.0364 29.5372 31.6742 31.9289C30.3119 34.3207 29.5852 37.1284 29.5852 40C29.5852 42.8717 30.3119 45.6794 31.6742 48.0711C33.0364 50.4629 34.9736 52.3322 37.2428 53.4446C39.512 54.5571 42.0122 54.8632 44.4299 54.3245C46.8476 53.7858 49.0752 52.4264 50.8334 50.4167"
+        stroke="white" fill="#1D324B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M42.0833 35.8333H25.4166M25.4166 44.1666H42.0833" stroke="white" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </g>
+    <defs>
+      <clipPath id="clip0_1_1164">
+        <rect width="50" height="50" fill="white" transform="translate(15 15)" />
+      </clipPath>
+    </defs>
+  </symbol>
+
+  <symbol id="ARS" viewBox="0 0 80 80">
+    <rect width="80" height="80" rx="8" fill="#5A4B2C" />
+    <g clip-path="url(#clip0_1_1181)">
+      <path
+        d="M31.6666 54.5834V25.4167H38.9583C40.1894 25.4167 41.4085 25.6592 42.5459 26.1303C43.6834 26.6015 44.7169 27.292 45.5874 28.1626C46.458 29.0331 47.1485 30.0666 47.6197 31.204C48.0908 32.3415 48.3333 33.5605 48.3333 34.7917C48.3333 36.0228 48.0908 37.2419 47.6197 38.3793C47.1485 39.5168 46.458 40.5503 45.5874 41.4208C44.7169 42.2914 43.6834 42.9819 42.5459 43.4531C41.4085 43.9242 40.1894 44.1667 38.9583 44.1667H31.6666"
+        stroke="white" fill="#5A4B2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M52.5 31.6667H27.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M52.5 37.9167H27.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <defs>
+      <clipPath id="clip0_1_1181">
+        <rect width="50" height="50" fill="white" transform="translate(15 15)" />
+      </clipPath>
+    </defs>
+  </symbol>
+
+  <symbol id="YCC" viewBox="0 0 80 80">
+    <rect width="80" height="80" rx="8" fill="#4D505B" />
+    <g clip-path="url(#clip0_1_1188)">
+      <path
+        d="M46.25 33.75V50.4167C46.25 51.5217 46.689 52.5815 47.4704 53.3629C48.2518 54.1443 49.3116 54.5833 50.4167 54.5833C51.5217 54.5833 52.5815 54.1443 53.3629 53.3629C54.1443 52.5815 54.5833 51.5217 54.5833 50.4167"
+        stroke="white" fill="#4D505B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M54.5833 33.75H25.4166" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M54.5833 25.4167H25.4166" stroke="white" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" />
+      <path d="M33.75 33.75V42.0833C33.75 47.2917 32.3605 50.4167 29.5834 54.5833" stroke="white" fill="#4D505B"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <defs>
+      <clipPath id="clip0_1_1188">
+        <rect width="50" height="50" fill="white" transform="translate(15 15)" />
+      </clipPath>
+    </defs>
+  </symbol>
+
+
+  <symbol id="BTC" viewBox="0 0 80 80">
+    <rect width="80" height="80" rx="8" fill="#3D2E28" />
+    <g clip-path="url(#clip0_1_1170)">
+      <path
+        d="M27.5 27.5H44.1667C45.8243 27.5 47.414 28.1585 48.5861 29.3306C49.7582 30.5027 50.4167 32.0924 50.4167 33.75C50.4167 35.4076 49.7582 36.9973 48.5861 38.1694C47.414 39.3415 45.8243 40 44.1667 40C45.8243 40 47.414 40.6585 48.5861 41.8306C49.7582 43.0027 50.4167 44.5924 50.4167 46.25C50.4167 47.9076 49.7582 49.4973 48.5861 50.6694C47.414 51.8415 45.8243 52.5 44.1667 52.5H27.5"
+        stroke="white" fill="#3D2E28" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M31.6666 27.5V52.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M31.6666 40H44.1666" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M33.75 21.25V27.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M42.0834 21.25V27.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M33.75 52.5V58.75" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M42.0834 52.5V58.75" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <defs>
+      <clipPath id="clip0_1_1170">
+        <rect width="50" height="50" fill="white" transform="translate(15 15)" />
+      </clipPath>
+    </defs>
+  </symbol>
+
+</svg>
