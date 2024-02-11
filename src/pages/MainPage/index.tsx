@@ -9,7 +9,6 @@ import { setCurrentRates } from '@/store/slices/currentRatesSlice';
 import { getInitialUpdateTimeStatusState, getUpdateTime, isRelevantData } from '@/utils';
 
 function MainPage() {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { rates, updateTimestamp } = useSelector((store: IRootState) => store.currentRates);
   const [status, setStatus] = useState<'updated' | 'updating' | 'error'>(
     getInitialUpdateTimeStatusState(updateTimestamp)
@@ -33,7 +32,7 @@ function MainPage() {
   return (
     <>
       <UpdateStatus status={status} time={getUpdateTime(updateTimestamp)} />
-      <QuotesSection rates={rates} />
+      <QuotesSection status={status} rates={rates} />
     </>
   );
 }

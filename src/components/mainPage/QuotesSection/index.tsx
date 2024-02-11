@@ -1,21 +1,33 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import { Container } from '@/components/common/Container';
 
+import { PLACEHOLDER_CARD_NUMBER } from './constants';
+import { PlaceholderCard } from './PlaceholderCard';
 import { QuoteCard } from './QuoteCard';
 import { QuotesList, Title, Wrapper } from './styled';
 import { IQuotesSection } from './types';
 
-function QuotesSection({ rates }: IQuotesSection) {
+function QuotesSection({ rates, status }: IQuotesSection) {
+  const placeholderCardList = useMemo(
+    () =>
+      new Array(PLACEHOLDER_CARD_NUMBER)
+        .fill('')
+        .map((_, index) => <PlaceholderCard key={index} isAnimated={status === 'updating'} />),
+    [status]
+  );
+
   return (
     <section>
       <Container>
         <Wrapper>
           <Title>Quotes</Title>
           <QuotesList>
-            {rates.map(({ asset_id_quote, rate }) => (
-              <QuoteCard quoteID={asset_id_quote} rate={rate} key={asset_id_quote} />
-            ))}
+            {status === 'updated'
+              ? rates.map(({ asset_id_quote, rate }) => (
+                  <QuoteCard quoteID={asset_id_quote} rate={rate} key={asset_id_quote} />
+                ))
+              : placeholderCardList}
           </QuotesList>
         </Wrapper>
       </Container>
