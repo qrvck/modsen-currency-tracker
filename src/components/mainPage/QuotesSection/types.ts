@@ -1,7 +1,7 @@
-import { IRate } from '@/types/currentRates.types';
+import { ICurrency } from '@/store/slices/currentRatesSlice/types';
 
 interface IQuotesSection {
-  rates: IRate[];
+  currencies: ICurrency[];
   status: 'updated' | 'updating' | 'error';
 }
 

@@ -1,5 +1,5 @@
 interface IQuoteCard {
-  quoteID: string;
+  currencyID: string;
   rate: number;
 }
 

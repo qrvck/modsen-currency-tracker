@@ -3,8 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 import { IInitialState, ISetCurrentRatesAction } from './types';
 
 const initialState: IInitialState = {
-  asset_id_base: '',
-  rates: [],
+  baseCurrencyID: '',
+  currencies: [],
   updateTimestamp: 0,
 };
 
@@ -15,8 +15,8 @@ const currentRatesSlice = createSlice({
     setCurrentRates: (state, action: ISetCurrentRatesAction) => {
       const { asset_id_base, rates } = action.payload;
 
-      state.asset_id_base = asset_id_base;
-      state.rates = rates;
+      state.baseCurrencyID = asset_id_base;
+      state.currencies = rates.map(({ asset_id_quote, rate }) => ({ id: asset_id_quote, rate }));
       state.updateTimestamp = Date.now();
     },
   },

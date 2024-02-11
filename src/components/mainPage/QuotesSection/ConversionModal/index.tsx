@@ -4,10 +4,10 @@ import { Modal } from '@/components/common/Modal';
 
 import { IConversionModal } from './types';
 
-function ConversionModal({ quote, onClose }: IConversionModal) {
+function ConversionModal({ currencyID, onClose }: IConversionModal) {
   return (
-    <Modal onClose={onClose} isOpen={Boolean(quote)}>
-      <p>{quote}</p>
+    <Modal onClose={onClose} isOpen={Boolean(currencyID)}>
+      <p>{currencyID}</p>
     </Modal>
   );
 }

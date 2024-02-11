@@ -1,5 +1,5 @@
 import { axiosInstance } from '../config';
-import { BASE_ASSET_ID, FILTERED_ASSET_IDS } from '../constants';
+import { BASE_ASSET_ID, FILTERED_ASSET_IDS } from './constants';
 import { IResponseData } from './types';
 
 async function getCurrentRates() {

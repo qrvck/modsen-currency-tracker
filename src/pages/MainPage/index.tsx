@@ -9,7 +9,7 @@ import { setCurrentRates } from '@/store/slices/currentRatesSlice';
 import { getInitialUpdateTimeStatusState, getUpdateTime, isRelevantData } from '@/utils';
 
 function MainPage() {
-  const { rates, updateTimestamp } = useSelector((store: IRootState) => store.currentRates);
+  const { currencies, updateTimestamp } = useSelector((store: IRootState) => store.currentRates);
   const [status, setStatus] = useState<'updated' | 'updating' | 'error'>(
     getInitialUpdateTimeStatusState(updateTimestamp)
   );
@@ -32,7 +32,7 @@ function MainPage() {
   return (
     <>
       <UpdateStatus status={status} time={getUpdateTime(updateTimestamp)} />
-      <QuotesSection status={status} rates={rates} />
+      <QuotesSection status={status} currencies={currencies} />
     </>
   );
 }

@@ -1,11 +1,18 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 
-import { ICurrentRates } from '@/types/currentRates.types';
+import { IResponseData } from '@/api/currentRates/types';
 
-interface IInitialState extends ICurrentRates {
+interface IInitialState {
+  baseCurrencyID: string;
+  currencies: ICurrency[];
   updateTimestamp: number;
 }
 
-type ISetCurrentRatesAction = PayloadAction<ICurrentRates>;
+interface ICurrency {
+  id: string;
+  rate: number;
+}
 
-export type { IInitialState, ISetCurrentRatesAction };
+type ISetCurrentRatesAction = PayloadAction<IResponseData>;
+
+export type { ICurrency, IInitialState, ISetCurrentRatesAction };

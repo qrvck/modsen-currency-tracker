@@ -7,22 +7,22 @@ import { DECIMAL_NUMBER } from './constants';
 import { Card, CardTitle, Icon, Rate, TextWrapper } from './styled';
 import { IQuoteCard } from './types';
 
-function QuoteCard({ quoteID, rate }: IQuoteCard) {
-  const [openedQuote, setOpenedQuote] = useState<string | null>(null);
+function QuoteCard({ currencyID, rate }: IQuoteCard) {
+  const [openedCurrency, setOpenedCurrency] = useState<string | null>(null);
 
   return (
     <>
-      <Card onClick={() => setOpenedQuote(quoteID)}>
+      <Card onClick={() => setOpenedCurrency(currencyID)}>
         <Icon>
-          <use href={currencySprite + `#${quoteID}`} />
+          <use href={currencySprite + `#${currencyID}`} />
         </Icon>
         <TextWrapper>
-          <CardTitle>{quoteID}</CardTitle>
+          <CardTitle>{currencyID}</CardTitle>
           <Rate>R$ {rate.toFixed(DECIMAL_NUMBER)}</Rate>
         </TextWrapper>
       </Card>
 
-      <ConversionModal quote={openedQuote} onClose={() => setOpenedQuote(null)} />
+      <ConversionModal currencyID={openedCurrency} onClose={() => setOpenedCurrency(null)} />
     </>
   );
 }

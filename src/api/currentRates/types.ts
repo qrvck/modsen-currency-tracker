@@ -1,5 +1,12 @@
-import { ICurrentRates } from '@/types/currentRates.types';
+interface IResponseData {
+  asset_id_base: string;
+  rates: IRate[];
+}
 
-type IResponseData = ICurrentRates;
+interface IRate {
+  time: string;
+  asset_id_quote: string;
+  rate: number;
+}
 
 export type { IResponseData };

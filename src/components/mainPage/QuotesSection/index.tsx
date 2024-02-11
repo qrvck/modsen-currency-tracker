@@ -8,7 +8,7 @@ import { QuoteCard } from './QuoteCard';
 import { QuotesList, Title, Wrapper } from './styled';
 import { IQuotesSection } from './types';
 
-function QuotesSection({ rates, status }: IQuotesSection) {
+function QuotesSection({ currencies, status }: IQuotesSection) {
   const placeholderCardList = useMemo(
     () =>
       new Array(PLACEHOLDER_CARD_NUMBER)
@@ -24,9 +24,7 @@ function QuotesSection({ rates, status }: IQuotesSection) {
           <Title>Quotes</Title>
           <QuotesList>
             {status === 'updated'
-              ? rates.map(({ asset_id_quote, rate }) => (
-                  <QuoteCard quoteID={asset_id_quote} rate={rate} key={asset_id_quote} />
-                ))
+              ? currencies.map(({ id, rate }) => <QuoteCard currencyID={id} rate={rate} key={id} />)
               : placeholderCardList}
           </QuotesList>
         </Wrapper>
