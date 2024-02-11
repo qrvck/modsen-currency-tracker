@@ -3,16 +3,16 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import { IResponseData } from '@/api/convertCurrency/types';
 
 interface IInitialState {
-  [index: string]: IConvertibleCurrencies;
+  [index: string]: IConvertedCurrency;
 }
 
-interface IConvertibleCurrencies {
+interface IConvertedCurrency {
   fromCurrency: string;
   toCurrency: string;
   rate: number;
   updateTimestamp: number;
 }
 
-type ISetConvertibleCurrencies = PayloadAction<IResponseData>;
+type ISetConvertedCurrency = PayloadAction<IResponseData>;
 
-export type { IInitialState, ISetConvertibleCurrencies };
+export type { IInitialState, ISetConvertedCurrency };

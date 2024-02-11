@@ -2,12 +2,12 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { convertCurrencyReduser } from './slices/convertCurrencySlice';
+import { convertedCurrenciesReduser } from './slices/convertedCurrenciesSlice';
 import { currentRatesReduser } from './slices/currentRatesSlice';
 
 const rootReducer = combineReducers({
   currentRates: currentRatesReduser,
-  convertCurrency: convertCurrencyReduser,
+  convertedCurrencies: convertedCurrenciesReduser,
 });
 
 const persistConfig = {

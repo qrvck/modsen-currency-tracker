@@ -1,14 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { IInitialState, ISetConvertibleCurrencies } from './types';
+import { IInitialState, ISetConvertedCurrency } from './types';
 
 const initialState: IInitialState = {};
 
 const convertCurrencySlice = createSlice({
-  name: 'convertCurrency',
+  name: 'convertedCurrencies',
   initialState,
   reducers: {
-    setConvertibleCurrencies: (state, action: ISetConvertibleCurrencies) => {
+    setConvertedCurrency: (state, action: ISetConvertedCurrency) => {
       const { asset_id_base, asset_id_quote, rate } = action.payload;
 
       state[`${asset_id_base}-${asset_id_quote}`] = {
@@ -21,5 +21,5 @@ const convertCurrencySlice = createSlice({
   },
 });
 
-export const { setConvertibleCurrencies } = convertCurrencySlice.actions;
-export const { reducer: convertCurrencyReduser } = convertCurrencySlice;
+export const { setConvertedCurrency } = convertCurrencySlice.actions;
+export const { reducer: convertedCurrenciesReduser } = convertCurrencySlice;

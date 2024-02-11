@@ -5,7 +5,7 @@ import { convertCurrency } from '@/api/convertCurrency';
 import { Modal } from '@/components/common/Modal';
 import { ALL_CURRENCY_IDS } from '@/constants/currency';
 import { IRootState } from '@/store';
-import { setConvertibleCurrencies } from '@/store/slices/convertCurrencySlice';
+import { setConvertedCurrency } from '@/store/slices/convertedCurrenciesSlice';
 import { isRelevantData } from '@/utils';
 
 import {
@@ -26,17 +26,17 @@ function ConversionModal({ currencyID, onClose }: IConversionModal) {
     [currencyID]
   );
 
-  const convertedCurrency = useSelector((store: IRootState) => store.convertCurrency);
+  const convertedCurrenciesStore = useSelector((store: IRootState) => store.convertedCurrencies);
   const [selectValue, setSelectValue] = useState(availableCurrencyForConversion[0]);
   const [convertedRate, setConvertedRate] = useState<number | null>(null);
   const [isError, setIsError] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const convertedValue = convertedCurrency[`${currencyID}-${selectValue}`];
+    const convertedCurrency = convertedCurrenciesStore[`${currencyID}-${selectValue}`];
 
-    if (convertedValue && isRelevantData(convertedValue.updateTimestamp)) {
-      setConvertedRate(convertedValue.rate);
+    if (convertedCurrency && isRelevantData(convertedCurrency.updateTimestamp)) {
+      setConvertedRate(convertedCurrency.rate);
       setIsError(false);
     } else {
       const loadConvertCurrency = async () => {
@@ -44,7 +44,7 @@ function ConversionModal({ currencyID, onClose }: IConversionModal) {
           setConvertedRate(null);
           setIsError(false);
           const response = await convertCurrency(currencyID, selectValue);
-          dispatch(setConvertibleCurrencies(response.data));
+          dispatch(setConvertedCurrency(response.data));
           setConvertedRate(response.data.rate);
         } catch {
           setIsError(true);
@@ -53,7 +53,7 @@ function ConversionModal({ currencyID, onClose }: IConversionModal) {
 
       loadConvertCurrency();
     }
-  }, [currencyID, selectValue, dispatch, convertedCurrency]);
+  }, [convertedCurrenciesStore, currencyID, dispatch, selectValue]);
 
   const handleChangeSelect = (e: ChangeEvent<HTMLSelectElement>) => {
     setSelectValue(e.target.value);
