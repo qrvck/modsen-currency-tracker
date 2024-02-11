@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const StatusCircle = styled.div<{ $status: 'success' | 'update' | 'error' }>`
+const StatusCircle = styled.div<{ $status: 'updated' | 'updating' | 'error' }>`
   position: relative;
   width: 17px;
   height: 17px;
@@ -25,8 +25,8 @@ const StatusCircle = styled.div<{ $status: 'success' | 'update' | 'error' }>`
   &::before,
   &::after {
     background-color: ${({ theme, $status }) =>
-      ($status === 'success' && theme.colors.darkGreen) ||
-      ($status === 'update' && theme.colors.orange) ||
+      ($status === 'updated' && theme.colors.darkGreen) ||
+      ($status === 'updating' && theme.colors.orange) ||
       ($status === 'error' && theme.colors.red)};
 
     border-radius: 50%;

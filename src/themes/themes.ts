@@ -35,6 +35,7 @@ const darkTheme = {
       sixth: '#898989',
       seventh: '#9e9e9e',
       eighth: '#1b2028',
+      ninth: '#202025',
     },
 
     ...staticColors,
@@ -57,6 +58,7 @@ const lightTheme = {
       sixth: '#767676',
       seventh: '#616161',
       eighth: '#e4dfd7',
+      ninth: '#dfdfda',
     },
 
     ...staticColors,

@@ -4,7 +4,6 @@ import { Outlet } from 'react-router-dom';
 import { Footer } from '../Footer';
 import { Header } from '../Header';
 import { Intro } from '../Intro';
-import { UpdateStatus } from '../UpdateStatus';
 
 function Layout() {
   return (
@@ -12,7 +11,6 @@ function Layout() {
       <Header />
       <main>
         <Intro />
-        <UpdateStatus />
         <Outlet />
       </main>
       <Footer />

@@ -1,0 +1,1 @@
+export const PLACEHOLDER_CARD_NUMBER = 7;
