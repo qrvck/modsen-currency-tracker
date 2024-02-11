@@ -22,7 +22,7 @@ function QuoteCard({ currencyID, rate }: IQuoteCard) {
         </TextWrapper>
       </Card>
 
-      <ConversionModal currencyID={openedCurrency} onClose={() => setOpenedCurrency(null)} />
+      {openedCurrency && <ConversionModal currencyID={openedCurrency} onClose={() => setOpenedCurrency(null)} />}
     </>
   );
 }

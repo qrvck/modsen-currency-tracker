@@ -1,9 +1,14 @@
-import React, { ChangeEvent, useMemo, useState } from 'react';
+import React, { ChangeEvent, useEffect, useMemo, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { convertCurrency } from '@/api/convertCurrency';
 import { Modal } from '@/components/common/Modal';
 import { ALL_CURRENCY_IDS } from '@/constants/currency';
+import { IRootState } from '@/store';
+import { setConvertibleCurrencies } from '@/store/slices/convertCurrencySlice';
+import { isRelevantData } from '@/utils';
 
-import { CONVERTER_TEXT, OUTPUT_TEXT, SUBTITLE_PART_1, SUBTITLE_PART_2 } from './constants';
+import { CONVERTER_TEXT, DECIMAL_NUMBER, OUTPUT_TEXT, SUBTITLE_PART_1, SUBTITLE_PART_2 } from './constants';
 import { ConverterText, ConverterWrapper, Select, Subtitle, Title, Wrapper } from './styled';
 import { IConversionModal } from './types';
 
@@ -13,7 +18,34 @@ function ConversionModal({ currencyID, onClose }: IConversionModal) {
     [currencyID]
   );
 
+  const convertedCurrency = useSelector((store: IRootState) => store.convertCurrency);
   const [selectValue, setSelectValue] = useState(availableCurrencyForConversion[0]);
+  const [convertedRate, setConvertedRate] = useState<number | null>(null);
+  const [isError, setIsError] = useState(false);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const convertedValue = convertedCurrency[`${currencyID}-${selectValue}`];
+
+    if (convertedValue && isRelevantData(convertedValue.updateTimestamp)) {
+      setConvertedRate(convertedValue.rate);
+      setIsError(false);
+    } else {
+      const loadConvertCurrency = async () => {
+        try {
+          setConvertedRate(null);
+          setIsError(false);
+          const response = await convertCurrency(currencyID, selectValue);
+          dispatch(setConvertibleCurrencies(response.data));
+          setConvertedRate(response.data.rate);
+        } catch {
+          setIsError(true);
+        }
+      };
+
+      loadConvertCurrency();
+    }
+  }, [currencyID, selectValue, dispatch, convertedCurrency]);
 
   const handleChangeSelect = (e: ChangeEvent<HTMLSelectElement>) => {
     setSelectValue(e.target.value);
@@ -42,7 +74,9 @@ function ConversionModal({ currencyID, onClose }: IConversionModal) {
 
         <p>
           {OUTPUT_TEXT}
-          {1233456}
+          {convertedRate?.toFixed(DECIMAL_NUMBER)}
+          {!convertedRate && !isError && 'loading...'}
+          {isError && 'error'}
         </p>
       </Wrapper>
     </Modal>

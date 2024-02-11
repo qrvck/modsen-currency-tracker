@@ -1,5 +1,5 @@
 interface IConversionModal {
-  currencyID: string | null;
+  currencyID: string;
   onClose: () => void;
 }
 
