@@ -5,7 +5,8 @@ function isRelevantData(updateTimestamp: number) {
 
 function getUpdateTime(updateTimestamp: number) {
   const updateTime = new Date(updateTimestamp);
-  return `${updateTime.getHours()}:${updateTime.getMinutes()}`;
+  const minutes = updateTime.getMinutes() > 9 ? updateTime.getMinutes() : `0${updateTime.getMinutes()}`;
+  return `${updateTime.getHours()}:${minutes}`;
 }
 
 function getInitialUpdateTimeStatusState(timestamp: number) {
