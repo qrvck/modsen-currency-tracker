@@ -4,16 +4,12 @@ import ReactDOM from 'react-dom';
 import { Background, CloseButton, InnerBackground, ModalWrapper, Window } from './styled';
 import { IModal } from './types';
 
-function Modal({ isOpen, children, onClose }: IModal) {
+function Modal({ children, onClose }: IModal) {
   const [isFullView, setIsFullView] = useState(false);
 
   useEffect(() => {
-    if (isOpen) {
-      setIsFullView(true);
-    } else {
-      setIsFullView(false);
-    }
-  }, [isOpen]);
+    setIsFullView(true);
+  }, []);
 
   const appRoot = useMemo(() => document.querySelector('#root')!, []);
 
@@ -27,11 +23,7 @@ function Modal({ isOpen, children, onClose }: IModal) {
     </Background>
   );
 
-  if (isOpen) {
-    return ReactDOM.createPortal(modalElements, appRoot);
-  } else {
-    null;
-  }
+  return ReactDOM.createPortal(modalElements, appRoot);
 }
 
 export { Modal };

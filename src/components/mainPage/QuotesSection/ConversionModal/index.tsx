@@ -60,7 +60,7 @@ function ConversionModal({ currencyID, onClose }: IConversionModal) {
   };
 
   return (
-    <Modal onClose={onClose} isOpen={Boolean(currencyID)}>
+    <Modal onClose={onClose}>
       <Wrapper>
         <Title>{currencyID}</Title>
         <Subtitle>
