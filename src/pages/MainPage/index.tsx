@@ -6,13 +6,15 @@ import { UpdateStatus } from '@/components/common/UpdateStatus';
 import { QuotesSection } from '@/components/mainPage/QuotesSection';
 import { IRootState } from '@/store';
 import { setCurrentRates } from '@/store/slices/currentRatesSlice';
-import { getInitialUpdateTimeStatusState, getUpdateTime, isRelevantData } from '@/utils';
+import { getUpdateTime, isRelevantData } from '@/utils';
+
+function getInitialStatusState(timestamp: number) {
+  return isRelevantData(timestamp) ? 'updated' : 'updating';
+}
 
 function MainPage() {
   const { currencies, updateTimestamp } = useSelector((store: IRootState) => store.currentRates);
-  const [status, setStatus] = useState<'updated' | 'updating' | 'error'>(
-    getInitialUpdateTimeStatusState(updateTimestamp)
-  );
+  const [status, setStatus] = useState<'updated' | 'updating' | 'error'>(getInitialStatusState(updateTimestamp));
   const dispatch = useDispatch();
 
   useEffect(() => {
