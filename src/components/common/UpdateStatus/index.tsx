@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import { Container } from '../Container';
 import { ERROR_MESSAGE, UPDATE_MESSAGE, UPDATED_MESSAGE } from './constants';
 import { StatusCircle, StatusText, Wrapper } from './styles';
 import { IUpdateStatus } from './types';
 
-function UpdateStatus({ status, time }: IUpdateStatus) {
+function UpdateStatus({ status, timestamp = 0 }: IUpdateStatus) {
+  const time = useMemo(() => {
+    const updateTime = new Date(timestamp);
+    const minutes = updateTime.getMinutes() > 9 ? updateTime.getMinutes() : `0${updateTime.getMinutes()}`;
+    return `${updateTime.getHours()}:${minutes}`;
+  }, [timestamp]);
+
   return (
     <section>
       <Container>

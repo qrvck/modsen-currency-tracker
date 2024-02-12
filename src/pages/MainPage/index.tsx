@@ -6,7 +6,7 @@ import { UpdateStatus } from '@/components/common/UpdateStatus';
 import { QuotesSection } from '@/components/mainPage/QuotesSection';
 import { IRootState } from '@/store';
 import { setCurrentRates } from '@/store/slices/currentRatesSlice';
-import { getUpdateTime, isRelevantData } from '@/utils';
+import { isRelevantData } from '@/utils';
 
 function getInitialStatusState(timestamp: number) {
   return isRelevantData(timestamp) ? 'updated' : 'updating';
@@ -33,7 +33,7 @@ function MainPage() {
 
   return (
     <>
-      <UpdateStatus status={status} time={getUpdateTime(updateTimestamp)} />
+      <UpdateStatus status={status} timestamp={updateTimestamp} />
       <QuotesSection status={status} currencies={currencies} />
     </>
   );

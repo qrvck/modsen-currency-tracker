@@ -6,7 +6,7 @@ import { QUOTE_CURRENCY_IDS } from '@/constants/currency';
 import { IRootState } from '@/store';
 import { setCurrencyTimeline } from '@/store/slices/currencyTimelinesSlice';
 import { IInitialState as ICurrencyTimeState } from '@/store/slices/currencyTimelinesSlice/types';
-import { getUpdateTime, isRelevantData } from '@/utils';
+import { isRelevantData } from '@/utils';
 
 import { TimelinePageProps, TimelinePageState } from './types';
 
@@ -42,7 +42,7 @@ class TimelinePageComp extends React.Component<TimelinePageProps, TimelinePageSt
   }
 
   render() {
-    return <UpdateStatus status={this.state.status} time={getUpdateTime(this.getUpdateTimestamp())} />;
+    return <UpdateStatus status={this.state.status} timestamp={this.getUpdateTimestamp()} />;
   }
 }
 
