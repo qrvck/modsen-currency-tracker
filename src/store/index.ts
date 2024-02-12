@@ -3,11 +3,13 @@ import { FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, R
 import storage from 'redux-persist/lib/storage';
 
 import { convertedCurrenciesReduser } from './slices/convertedCurrenciesSlice';
+import { currencyTimelinesReduser } from './slices/currencyTimelinesSlice';
 import { currentRatesReduser } from './slices/currentRatesSlice';
 
 const rootReducer = combineReducers({
   currentRates: currentRatesReduser,
   convertedCurrencies: convertedCurrenciesReduser,
+  currencyTimelines: currencyTimelinesReduser,
 });
 
 const persistConfig = {
