@@ -5,7 +5,7 @@ import { UpdateStatus } from '@/components/common/UpdateStatus';
 import { QUOTE_CURRENCY_IDS } from '@/constants/currency';
 import { IRootState } from '@/store';
 import { setCurrencyTimeline } from '@/store/slices/currencyTimelinesSlice';
-import { IInitialState as ICurrencyTimeState } from '@/store/slices/currencyTimelinesSlice/types';
+import { IInitialState as ICurrencyTimelineState } from '@/store/slices/currencyTimelinesSlice/types';
 import { isRelevantData } from '@/utils';
 
 import { TimelinePageProps, TimelinePageState } from './types';
@@ -17,7 +17,7 @@ const mapStateToProps = (state: IRootState) => ({
 const mapDispatchToProps = { setCurrencyTimeline };
 export const connector = connect(mapStateToProps, mapDispatchToProps);
 
-function getInitialStatusState(currencyTimeState: ICurrencyTimeState, selectedCurrency: string) {
+function getInitialStatusState(currencyTimeState: ICurrencyTimelineState, selectedCurrency: string) {
   const currency = currencyTimeState[selectedCurrency];
   if (currency) {
     return isRelevantData(currency.updateTimestamp) ? 'updated' : 'updating';
