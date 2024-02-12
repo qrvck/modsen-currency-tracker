@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { UpdateStatus } from '@/components/common/UpdateStatus';
+import { ChartSection } from '@/components/timelinePage/ChartSection';
 import { QUOTE_CURRENCY_IDS } from '@/constants/currency';
 import { IRootState } from '@/store';
 import { setCurrencyTimeline } from '@/store/slices/currencyTimelinesSlice';
@@ -33,6 +34,8 @@ class TimelinePageComp extends React.Component<TimelinePageProps, TimelinePageSt
       selectedCurrency: QUOTE_CURRENCY_IDS[0],
       status: getInitialStatusState(this.props.currencyTimelines, QUOTE_CURRENCY_IDS[0]),
     };
+
+    this.handleEndChartSectionLoading = this.handleEndChartSectionLoading.bind(this);
   }
 
   getUpdateTimestamp() {
@@ -41,8 +44,17 @@ class TimelinePageComp extends React.Component<TimelinePageProps, TimelinePageSt
     return currencyTimelines[selectedCurrency]?.updateTimestamp || 0;
   }
 
+  handleEndChartSectionLoading(value: 'updated' | 'error') {
+    this.setState({ status: value });
+  }
+
   render() {
-    return <UpdateStatus status={this.state.status} timestamp={this.getUpdateTimestamp()} />;
+    return (
+      <>
+        <UpdateStatus status={this.state.status} timestamp={this.getUpdateTimestamp()} />
+        <ChartSection selectedCurrency={this.state.selectedCurrency} onEndLoading={this.handleEndChartSectionLoading} />
+      </>
+    );
   }
 }
 
