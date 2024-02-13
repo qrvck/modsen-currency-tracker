@@ -8,6 +8,7 @@ import { setCurrencyTimeline } from '@/store/slices/currencyTimelinesSlice';
 import { isRelevantData } from '@/utils';
 
 import { Wrapper } from './styled';
+import { TimelineChart } from './TimelineChart';
 import { ITimelinePageProps } from './types';
 
 const mapStateToProps = (state: IRootState) => ({
@@ -60,7 +61,7 @@ class ChartSectionComp extends React.PureComponent<ITimelinePageProps> {
     return (
       <Container>
         <Wrapper>
-          <p>график</p>
+          <TimelineChart />
         </Wrapper>
       </Container>
     );
