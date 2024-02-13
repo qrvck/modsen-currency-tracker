@@ -1,6 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { IInitialState, ISetCurrencyTimeline, ISetSelectedCurrency, ISetSelectedDate } from './types';
+import {
+  IInitialState,
+  ISetCurrencyTimeline,
+  ISetLoadingStatusCurrencyTimeline,
+  ISetSelectedCurrency,
+  ISetSelectedDate,
+} from './types';
 
 const initialState: IInitialState = {
   selectedDate: '',
@@ -21,13 +27,25 @@ const currencyTimelinesSlice = createSlice({
     },
 
     setCurrencyTimeline: (state, action: ISetCurrencyTimeline) => {
-      const { currency, data } = action.payload;
+      const { currency, fromRequestDate, timelineData } = action.payload;
 
       state.currencies[currency] = {
-        // ! заменить на правильный ключ
-        hereWillLBeDate: {
-          timelineData: data,
+        [fromRequestDate]: {
+          timelineData,
           updateTimestamp: Date.now(),
+          loadingStatus: 'updated',
+        },
+      };
+    },
+
+    setLoadingStatusCurrencyTimeline: (state, action: ISetLoadingStatusCurrencyTimeline) => {
+      const { currency, loadingStatus, fromRequestDate } = action.payload;
+
+      state.currencies[currency] = {
+        [fromRequestDate]: {
+          timelineData: [],
+          updateTimestamp: 0,
+          loadingStatus,
         },
       };
     },
