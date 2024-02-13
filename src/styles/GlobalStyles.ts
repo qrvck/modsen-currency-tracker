@@ -51,11 +51,9 @@ const GlobalStyles = createGlobalStyle`
   }
 
   button,
-  input {
+  input,
+  select {
     font: inherit;
-    color: inherit;
-    border: none;
-    background-color: transparent;
   }
 
   button {
