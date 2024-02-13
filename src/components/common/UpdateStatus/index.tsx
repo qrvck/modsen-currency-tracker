@@ -5,11 +5,16 @@ import { ERROR_MESSAGE, UPDATE_MESSAGE, UPDATED_MESSAGE } from './constants';
 import { StatusCircle, StatusText, Wrapper } from './styles';
 import { IUpdateStatus } from './types';
 
-function UpdateStatus({ status, timestamp = 0 }: IUpdateStatus) {
+function UpdateStatus({ status, timestamp }: IUpdateStatus) {
   const time = useMemo(() => {
-    const updateTime = new Date(timestamp);
-    const minutes = updateTime.getMinutes() > 9 ? updateTime.getMinutes() : `0${updateTime.getMinutes()}`;
-    return `${updateTime.getHours()}:${minutes}`;
+    if (timestamp) {
+      const updateTime = new Date(timestamp);
+      const minutes = updateTime.getMinutes() > 9 ? updateTime.getMinutes() : `0${updateTime.getMinutes()}`;
+
+      return `${updateTime.getHours()}:${minutes}`;
+    } else {
+      return '--:--';
+    }
   }, [timestamp]);
 
   return (
