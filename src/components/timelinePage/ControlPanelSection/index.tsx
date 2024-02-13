@@ -1,16 +1,20 @@
 import React, { ChangeEvent } from 'react';
+import { connect } from 'react-redux';
 
 import { Container } from '@/components/common/Container';
 import { QUOTE_CURRENCY_IDS } from '@/constants/currency';
+import { IRootState } from '@/store';
+import { setSelectedCurrency, setSelectedDate } from '@/store/slices/currencyTimelinesSlice';
 
 import { Hint, Select, Wrapper } from './styled';
+import { ControlPanelProps, ControlPanelState } from './types';
 
-type ControlPanelProps = Record<string, never>;
+const mapStateToProps = (state: IRootState) => ({
+  currencyTimelines: state.currencyTimelines,
+});
 
-interface ControlPanelState {
-  date: string;
-  currency: string;
-}
+const mapDispatchToProps = { setSelectedCurrency, setSelectedDate };
+export const connector = connect(mapStateToProps, mapDispatchToProps);
 
 const getMaxDate = () => {
   const millisecondsIn29Days = 2505600000;
@@ -22,7 +26,7 @@ const getMaxDate = () => {
   return `${fullYear}-${fullMonth}-${fullDate}`;
 };
 
-class ControlPanel extends React.Component<ControlPanelProps, ControlPanelState> {
+class ControlPanelComp extends React.Component<ControlPanelProps, ControlPanelState> {
   constructor(props: ControlPanelProps) {
     super(props);
     this.state = {
@@ -74,4 +78,4 @@ class ControlPanel extends React.Component<ControlPanelProps, ControlPanelState>
   }
 }
 
-export { ControlPanel };
+export const ControlPanel = connector(ControlPanelComp);
