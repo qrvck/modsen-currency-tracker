@@ -1,18 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
 
 import { IInitialState, ISetCurrencyTimeline, ISetSelectedCurrency, ISetSelectedDate } from './types';
-
-const currencyTimelinesPersistConfig = {
-  key: 'currencyTimelines',
-  storage: storage,
-  blacklist: ['somethingTemporary'],
-};
 
 const initialState: IInitialState = {
   selectedDate: '',
   selectedCurrency: '',
+  currencies: {},
 };
 
 const currencyTimelinesSlice = createSlice({
@@ -30,14 +23,16 @@ const currencyTimelinesSlice = createSlice({
     setCurrencyTimeline: (state, action: ISetCurrencyTimeline) => {
       const { currency, data } = action.payload;
 
-      state[currency] = {
-        data,
-        updateTimestamp: new Date().getTime(),
+      state.currencies[currency] = {
+        // ! заменить на правильный ключ
+        hereWillLBeDate: {
+          timelineData: data,
+          updateTimestamp: Date.now(),
+        },
       };
     },
   },
 });
 
 export const { setCurrencyTimeline, setSelectedDate, setSelectedCurrency } = currencyTimelinesSlice.actions;
-
-export const currencyTimelinesReduser = persistReducer(currencyTimelinesPersistConfig, currencyTimelinesSlice.reducer);
+export const { reducer: currencyTimelinesReduser } = currencyTimelinesSlice;

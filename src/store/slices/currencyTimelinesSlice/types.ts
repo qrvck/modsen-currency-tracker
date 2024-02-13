@@ -6,13 +6,16 @@ interface IInitialState {
   selectedDate: string;
   selectedCurrency: string;
 
-  [index: string]:
-    | {
-        data: ICurrencyTimelineData[];
+  currencies: {
+    // this key - currency. for example 'USDT', 'EUR'
+    [index: string]: {
+      // this key - from request date. for example: get data from '2023-03-01' plus 30days
+      [index: string]: {
+        timelineData: ICurrencyTimelineData[];
         updateTimestamp: number;
-      }
-    | undefined
-    | string;
+      };
+    };
+  };
 }
 
 type ISetCurrencyTimeline = PayloadAction<ICurrencyTimeline>;

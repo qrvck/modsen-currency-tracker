@@ -30,12 +30,14 @@ class ControlPanelComp extends React.Component<ControlPanelProps, ControlPanelSt
   constructor(props: ControlPanelProps) {
     super(props);
     this.state = {
-      date: '',
-      currency: '',
+      date: this.props.currencyTimelines.selectedDate,
+      currency: this.props.currencyTimelines.selectedCurrency,
     };
 
     this.handleChangeDate = this.handleChangeDate.bind(this);
     this.handleChangeCurrency = this.handleChangeCurrency.bind(this);
+    this.isDisableApplyButton = this.isDisableApplyButton.bind(this);
+    this.handleClickOnApplyButton = this.handleClickOnApplyButton.bind(this);
   }
 
   handleChangeDate = (e: ChangeEvent<HTMLInputElement>) => {
@@ -44,6 +46,18 @@ class ControlPanelComp extends React.Component<ControlPanelProps, ControlPanelSt
 
   handleChangeCurrency = (e: ChangeEvent<HTMLSelectElement>) => {
     this.setState({ currency: e.target.value });
+  };
+
+  isDisableApplyButton = () => {
+    const { date, currency } = this.state;
+    return !date || !currency;
+  };
+
+  handleClickOnApplyButton = () => {
+    const { setSelectedCurrency, setSelectedDate } = this.props;
+    const { currency, date } = this.state;
+    setSelectedCurrency(currency);
+    setSelectedDate(date);
   };
 
   render() {
@@ -70,7 +84,9 @@ class ControlPanelComp extends React.Component<ControlPanelProps, ControlPanelSt
               <Hint>select one</Hint>
             </div>
 
-            <button>APPLY</button>
+            <button disabled={this.isDisableApplyButton()} onClick={this.handleClickOnApplyButton}>
+              APPLY
+            </button>
           </Wrapper>
         </Container>
       </section>
