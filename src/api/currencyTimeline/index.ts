@@ -1,13 +1,17 @@
-import { TIMELINE_GENERATION_DATA } from '@/constants/timeline-generation-data';
 import { getRandomInteger } from '@/utils';
 
+import { TIMELINE_GENERATION_DATA } from './constants';
 import { ICurrencyTimeline } from './types';
 
-function getCurrencyTimeline(currency: string, daysPeriod: number = 30): Promise<ICurrencyTimeline> {
+function getCurrencyTimeline(currency: string, fromDate: number, daysPeriod: number = 30): Promise<ICurrencyTimeline> {
   return new Promise((resolve) => {
-    const randomData = new Array(daysPeriod).fill('').map(() => {
+    const randomData = new Array(daysPeriod).fill('').map((_, index) => {
+      const millisecondsIn1Day = 86400000;
       const randomInteger = getRandomInteger(0, TIMELINE_GENERATION_DATA.length - 1);
-      return TIMELINE_GENERATION_DATA[randomInteger];
+      const randomData = { ...TIMELINE_GENERATION_DATA[randomInteger] };
+      randomData.timestamp = fromDate + millisecondsIn1Day * index;
+
+      return randomData;
     });
 
     const currencyTimeline = {

@@ -88,8 +88,9 @@ class ControlPanelComp extends React.Component<ControlPanelProps, ControlPanelSt
     const { setLoadingStatusCurrencyTimeline, setCurrencyTimeline } = this.props;
 
     try {
+      const timestamp = new Date(date).getTime();
       setLoadingStatusCurrencyTimeline({ currency, fromRequestDate: date, loadingStatus: 'updating' });
-      const response = await getCurrencyTimeline(currency);
+      const response = await getCurrencyTimeline(currency, timestamp);
       setCurrencyTimeline({ currency, fromRequestDate: date, timelineData: response.data });
     } catch {
       setLoadingStatusCurrencyTimeline({ currency, fromRequestDate: date, loadingStatus: 'error' });

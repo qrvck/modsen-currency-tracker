@@ -6,6 +6,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 23735,
     volume_traded: 2461.84843139,
     trades_count: 17090,
+    timestamp: 0,
   },
   {
     price_open: 23736,
@@ -14,6 +15,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 23498,
     volume_traded: 2609.58252721,
     trades_count: 19097,
+    timestamp: 0,
   },
   {
     price_open: 23503,
@@ -22,6 +24,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 23434,
     volume_traded: 1742.07112849,
     trades_count: 16027,
+    timestamp: 0,
   },
   {
     price_open: 23421,
@@ -30,6 +33,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 23330,
     volume_traded: 799.21227741,
     trades_count: 9875,
+    timestamp: 0,
   },
   {
     price_open: 23328,
@@ -38,6 +42,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 22937,
     volume_traded: 1565.69556184,
     trades_count: 12734,
+    timestamp: 0,
   },
   {
     price_open: 22942,
@@ -46,6 +51,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 22763,
     volume_traded: 1758.68026943,
     trades_count: 14394,
+    timestamp: 0,
   },
   {
     price_open: 22761,
@@ -54,6 +60,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 23252,
     volume_traded: 2786.30911905,
     trades_count: 17282,
+    timestamp: 0,
   },
   {
     price_open: 23246,
@@ -62,6 +69,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 22961,
     volume_traded: 1236.37069596,
     trades_count: 13159,
+    timestamp: 0,
   },
   {
     price_open: 22965,
@@ -70,6 +78,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 21802,
     volume_traded: 2260.7850853,
     trades_count: 31657,
+    timestamp: 0,
   },
   {
     price_open: 21803,
@@ -78,6 +87,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 21639,
     volume_traded: 1503.99323818,
     trades_count: 13707,
+    timestamp: 0,
   },
   {
     price_open: 21631,
@@ -86,6 +96,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 21868,
     volume_traded: 714.75834458,
     trades_count: 7638,
+    timestamp: 0,
   },
   {
     price_open: 21868,
@@ -94,6 +105,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 21789,
     volume_traded: 1500.49042868,
     trades_count: 9090,
+    timestamp: 0,
   },
   {
     price_open: 21790,
@@ -102,6 +114,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 21790,
     volume_traded: 1948.68256018,
     trades_count: 17006,
+    timestamp: 0,
   },
   {
     price_open: 21790,
@@ -110,6 +123,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 22211,
     volume_traded: 2078.05407787,
     trades_count: 14171,
+    timestamp: 0,
   },
   {
     price_open: 22208,
@@ -118,6 +132,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 24332,
     volume_traded: 2333.02686241,
     trades_count: 16016,
+    timestamp: 0,
   },
   {
     price_open: 24332,
@@ -126,6 +141,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 23521,
     volume_traded: 3652.69656328,
     trades_count: 22091,
+    timestamp: 0,
   },
   {
     price_open: 23518,
@@ -134,6 +150,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 24580,
     volume_traded: 3402.87726628,
     trades_count: 22224,
+    timestamp: 0,
   },
   {
     price_open: 24577,
@@ -142,6 +159,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 24640,
     volume_traded: 742.27449112,
     trades_count: 9021,
+    timestamp: 0,
   },
   {
     price_open: 24638,
@@ -150,6 +168,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 24296,
     volume_traded: 1748.53563935,
     trades_count: 13699,
+    timestamp: 0,
   },
   {
     price_open: 24271,
@@ -158,6 +177,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 24843,
     volume_traded: 1879.83617982,
     trades_count: 15549,
+    timestamp: 0,
   },
   {
     price_open: 24843,
@@ -166,6 +186,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 24450,
     volume_traded: 2510.38873954,
     trades_count: 18622,
+    timestamp: 0,
   },
   {
     price_open: 24450,
@@ -174,6 +195,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 24188,
     volume_traded: 2005.21018874,
     trades_count: 16387,
+    timestamp: 0,
   },
   {
     price_open: 24188,
@@ -182,6 +204,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 23939,
     volume_traded: 2021.74721162,
     trades_count: 17074,
+    timestamp: 0,
   },
   {
     price_open: 23939,
@@ -190,6 +213,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 23189,
     volume_traded: 2793.84517076,
     trades_count: 19996,
+    timestamp: 0,
   },
   {
     price_open: 23186,
@@ -198,6 +222,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 23161,
     volume_traded: 861.89205456,
     trades_count: 10797,
+    timestamp: 0,
   },
   {
     price_open: 23166,
@@ -206,6 +231,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 23562,
     volume_traded: 1022.33184159,
     trades_count: 9723,
+    timestamp: 0,
   },
   {
     price_open: 23560,
@@ -214,6 +240,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 23493,
     volume_traded: 1762.04738603,
     trades_count: 15889,
+    timestamp: 0,
   },
   {
     price_open: 23497,
@@ -222,6 +249,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 23136,
     volume_traded: 1200.44217857,
     trades_count: 13216,
+    timestamp: 0,
   },
   {
     price_open: 23146,
@@ -230,6 +258,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 23634,
     volume_traded: 1779.64617391,
     trades_count: 15561,
+    timestamp: 0,
   },
   {
     price_open: 23632,
@@ -238,6 +267,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 23466,
     volume_traded: 1068.50073024,
     trades_count: 13248,
+    timestamp: 0,
   },
   {
     price_open: 23469,
@@ -246,6 +276,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 22359,
     volume_traded: 3068.20210385,
     trades_count: 22218,
+    timestamp: 0,
   },
   {
     price_open: 22359,
@@ -254,6 +285,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 22347,
     volume_traded: 613.30340087,
     trades_count: 9632,
+    timestamp: 0,
   },
   {
     price_open: 22347,
@@ -262,6 +294,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 22428,
     volume_traded: 943.45621619,
     trades_count: 10132,
+    timestamp: 0,
   },
   {
     price_open: 22427,
@@ -270,6 +303,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 22407,
     volume_traded: 1176.19513469,
     trades_count: 11949,
+    timestamp: 0,
   },
   {
     price_open: 22414,
@@ -278,6 +312,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 22200,
     volume_traded: 1861.36071437,
     trades_count: 15235,
+    timestamp: 0,
   },
   {
     price_open: 22197,
@@ -286,6 +321,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 21704,
     volume_traded: 1461.32481814,
     trades_count: 14275,
+    timestamp: 0,
   },
   {
     price_open: 21697,
@@ -294,6 +330,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 20367,
     volume_traded: 3419.32099261,
     trades_count: 24520,
+    timestamp: 0,
   },
   {
     price_open: 20368,
@@ -302,6 +339,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 20220,
     volume_traded: 3751.59688153,
     trades_count: 28903,
+    timestamp: 0,
   },
   {
     price_open: 20226,
@@ -310,6 +348,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 20618,
     volume_traded: 3679.55113655,
     trades_count: 34095,
+    timestamp: 0,
   },
   {
     price_open: 20615,
@@ -318,6 +357,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 22183,
     volume_traded: 3763.56286063,
     trades_count: 25819,
+    timestamp: 0,
   },
   {
     price_open: 22190,
@@ -326,6 +366,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 24209,
     volume_traded: 6855.06435544,
     trades_count: 47473,
+    timestamp: 0,
   },
   {
     price_open: 24210,
@@ -334,6 +375,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 24750,
     volume_traded: 8236.146389,
     trades_count: 52108,
+    timestamp: 0,
   },
   {
     price_open: 24745,
@@ -342,6 +384,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 24368,
     volume_traded: 4381.36773662,
     trades_count: 33254,
+    timestamp: 0,
   },
   {
     price_open: 24361,
@@ -350,6 +393,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 25050,
     volume_traded: 2457.31080218,
     trades_count: 20903,
+    timestamp: 0,
   },
   {
     price_open: 25051,
@@ -358,6 +402,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 27466,
     volume_traded: 5099.74678242,
     trades_count: 37055,
+    timestamp: 0,
   },
   {
     price_open: 27466,
@@ -366,6 +411,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 26980,
     volume_traded: 2923.64776635,
     trades_count: 23231,
+    timestamp: 0,
   },
   {
     price_open: 26992,
@@ -374,6 +420,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 28054,
     volume_traded: 2651.80203469,
     trades_count: 23494,
+    timestamp: 0,
   },
   {
     price_open: 28081,
@@ -382,6 +429,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 27815,
     volume_traded: 4075.96176126,
     trades_count: 37913,
+    timestamp: 0,
   },
   {
     price_open: 27808,
@@ -390,6 +438,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 28192,
     volume_traded: 2708.96559708,
     trades_count: 25817,
+    timestamp: 0,
   },
   {
     price_open: 28184,
@@ -398,6 +447,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 27320,
     volume_traded: 5106.30413232,
     trades_count: 40946,
+    timestamp: 0,
   },
   {
     price_open: 27320,
@@ -406,6 +456,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 28343,
     volume_traded: 3298.7350261,
     trades_count: 30968,
+    timestamp: 0,
   },
   {
     price_open: 28352,
@@ -414,6 +465,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 27493,
     volume_traded: 2857.74649995,
     trades_count: 29742,
+    timestamp: 0,
   },
   {
     price_open: 27497,
@@ -422,6 +474,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 27499,
     volume_traded: 974.92766116,
     trades_count: 17145,
+    timestamp: 0,
   },
   {
     price_open: 27493,
@@ -430,6 +483,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 28004,
     volume_traded: 1125.1421897,
     trades_count: 17483,
+    timestamp: 0,
   },
   {
     price_open: 27992,
@@ -438,6 +492,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 27142,
     volume_traded: 2320.67051458,
     trades_count: 27194,
+    timestamp: 0,
   },
   {
     price_open: 27142,
@@ -446,6 +501,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 27272,
     volume_traded: 2159.24574888,
     trades_count: 24315,
+    timestamp: 0,
   },
   {
     price_open: 27272,
@@ -454,6 +510,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 28353,
     volume_traded: 2206.01648657,
     trades_count: 25361,
+    timestamp: 0,
   },
   {
     price_open: 28353,
@@ -462,6 +519,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 28039,
     volume_traded: 2867.95629543,
     trades_count: 28724,
+    timestamp: 0,
   },
   {
     price_open: 28036,
@@ -470,6 +528,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 28476,
     volume_traded: 2366.40276603,
     trades_count: 24382,
+    timestamp: 0,
   },
   {
     price_open: 28476,
@@ -478,6 +537,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 28469,
     volume_traded: 647.62647089,
     trades_count: 12081,
+    timestamp: 0,
   },
   {
     price_open: 28469,
@@ -486,6 +546,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 28186,
     volume_traded: 685.65403997,
     trades_count: 11857,
+    timestamp: 0,
   },
   {
     price_open: 28179,
@@ -494,6 +555,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 27816,
     volume_traded: 2384.9319717,
     trades_count: 27154,
+    timestamp: 0,
   },
   {
     price_open: 27820,
@@ -502,6 +564,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 28178,
     volume_traded: 1328.14597397,
     trades_count: 18179,
+    timestamp: 0,
   },
   {
     price_open: 28179,
@@ -510,6 +573,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 28183,
     volume_traded: 1616.17808384,
     trades_count: 19357,
+    timestamp: 0,
   },
   {
     price_open: 28181,
@@ -518,6 +582,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 28051,
     volume_traded: 1049.74492682,
     trades_count: 14328,
+    timestamp: 0,
   },
   {
     price_open: 28054,
@@ -526,6 +591,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 27931,
     volume_traded: 442.67063201,
     trades_count: 9889,
+    timestamp: 0,
   },
   {
     price_open: 27931,
@@ -534,6 +600,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 27969,
     volume_traded: 411.01092567,
     trades_count: 9022,
+    timestamp: 0,
   },
   {
     price_open: 27968,
@@ -542,6 +609,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 28340,
     volume_traded: 723.36649084,
     trades_count: 10454,
+    timestamp: 0,
   },
   {
     price_open: 28353,
@@ -550,6 +618,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 29652,
     volume_traded: 2683.48400758,
     trades_count: 23244,
+    timestamp: 0,
   },
   {
     price_open: 29657,
@@ -558,6 +627,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 30246,
     volume_traded: 2713.22736643,
     trades_count: 25584,
+    timestamp: 0,
   },
   {
     price_open: 30255,
@@ -566,6 +636,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 29903,
     volume_traded: 1970.28560154,
     trades_count: 20717,
+    timestamp: 0,
   },
   {
     price_open: 29914,
@@ -574,6 +645,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 30410,
     volume_traded: 1526.66436891,
     trades_count: 18861,
+    timestamp: 0,
   },
   {
     price_open: 30411,
@@ -582,6 +654,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 30498,
     volume_traded: 2596.34409881,
     trades_count: 24830,
+    timestamp: 0,
   },
   {
     price_open: 30498,
@@ -590,6 +663,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 30332,
     volume_traded: 583.89209572,
     trades_count: 9601,
+    timestamp: 0,
   },
   {
     price_open: 30327,
@@ -598,6 +672,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 30330,
     volume_traded: 669.54215114,
     trades_count: 10002,
+    timestamp: 0,
   },
   {
     price_open: 30328,
@@ -606,6 +681,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 29448,
     volume_traded: 2133.30663918,
     trades_count: 19164,
+    timestamp: 0,
   },
   {
     price_open: 29452,
@@ -614,6 +690,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 30395,
     volume_traded: 1838.52372004,
     trades_count: 18819,
+    timestamp: 0,
   },
   {
     price_open: 30388,
@@ -622,6 +699,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 28827,
     volume_traded: 3942.62850363,
     trades_count: 34950,
+    timestamp: 0,
   },
   {
     price_open: 28814,
@@ -630,6 +708,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 28238,
     volume_traded: 2507.60224731,
     trades_count: 23774,
+    timestamp: 0,
   },
   {
     price_open: 28240,
@@ -638,6 +717,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 27254,
     volume_traded: 2517.70523914,
     trades_count: 27743,
+    timestamp: 0,
   },
   {
     price_open: 27253,
@@ -646,6 +726,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 27817,
     volume_traded: 1005.02516418,
     trades_count: 11838,
+    timestamp: 0,
   },
   {
     price_open: 27820,
@@ -654,6 +735,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 27596,
     volume_traded: 809.77823386,
     trades_count: 12767,
+    timestamp: 0,
   },
   {
     price_open: 27594,
@@ -662,6 +744,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 27512,
     volume_traded: 2247.84958995,
     trades_count: 25081,
+    timestamp: 0,
   },
   {
     price_open: 27515,
@@ -670,6 +753,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 28300,
     volume_traded: 1895.3297184,
     trades_count: 22166,
+    timestamp: 0,
   },
   {
     price_open: 28306,
@@ -678,6 +762,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 28428,
     volume_traded: 5277.187044,
     trades_count: 32624,
+    timestamp: 0,
   },
   {
     price_open: 28427,
@@ -686,6 +771,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 29485,
     volume_traded: 3456.81938525,
     trades_count: 30304,
+    timestamp: 0,
   },
   {
     price_open: 29486,
@@ -694,6 +780,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 29333,
     volume_traded: 2478.99316814,
     trades_count: 21616,
+    timestamp: 0,
   },
   {
     price_open: 29339,
@@ -702,6 +789,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 29247,
     volume_traded: 961.89111817,
     trades_count: 9414,
+    timestamp: 0,
   },
   {
     price_open: 29252,
@@ -710,6 +798,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 29235,
     volume_traded: 1209.75658693,
     trades_count: 10796,
+    timestamp: 0,
   },
   {
     price_open: 29254,
@@ -718,6 +807,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 28079,
     volume_traded: 2913.86283351,
     trades_count: 21495,
+    timestamp: 0,
   },
   {
     price_open: 28079,
@@ -726,6 +816,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 28680,
     volume_traded: 1798.58351327,
     trades_count: 18868,
+    timestamp: 0,
   },
   {
     price_open: 28682,
@@ -734,6 +825,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 29033,
     volume_traded: 2941.30048977,
     trades_count: 23290,
+    timestamp: 0,
   },
   {
     price_open: 29043,
@@ -742,6 +834,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 28851,
     volume_traded: 1463.95538362,
     trades_count: 17392,
+    timestamp: 0,
   },
   {
     price_open: 28860,
@@ -750,6 +843,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 29547,
     volume_traded: 1923.16974421,
     trades_count: 17011,
+    timestamp: 0,
   },
   {
     price_open: 29537,
@@ -758,6 +852,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 28911,
     volume_traded: 1450.15750966,
     trades_count: 14682,
+    timestamp: 0,
   },
   {
     price_open: 28909,
@@ -766,6 +861,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 28472,
     volume_traded: 1032.53260895,
     trades_count: 10162,
+    timestamp: 0,
   },
   {
     price_open: 28485,
@@ -774,6 +870,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 27690,
     volume_traded: 2931.27115292,
     trades_count: 24358,
+    timestamp: 0,
   },
   {
     price_open: 27688,
@@ -782,6 +879,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 27650,
     volume_traded: 1393.17430099,
     trades_count: 16079,
+    timestamp: 0,
   },
   {
     price_open: 27648,
@@ -790,6 +888,7 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 27618,
     volume_traded: 2871.87104842,
     trades_count: 19417,
+    timestamp: 0,
   },
   {
     price_open: 27624,
@@ -798,5 +897,6 @@ export const TIMELINE_GENERATION_DATA = [
     price_close: 26991,
     volume_traded: 2181.84488326,
     trades_count: 17947,
+    timestamp: 0,
   },
 ];

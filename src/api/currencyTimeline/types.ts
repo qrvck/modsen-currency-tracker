@@ -4,6 +4,7 @@ interface ICurrencyTimeline {
 }
 
 interface ICurrencyTimelineData {
+  timestamp: number;
   price_open: number;
   price_high: number;
   price_low: number;
