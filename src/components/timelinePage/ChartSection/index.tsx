@@ -1,13 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getCurrencyTimeline } from '@/api/currencyTimeline';
 import { Container } from '@/components/common/Container';
 import { IRootState } from '@/store';
 import { setCurrencyTimeline } from '@/store/slices/currencyTimelinesSlice';
-import { isRelevantData } from '@/utils';
 
-import { Wrapper } from './styled';
+import { TITLE_TEXT1_PART_1, TITLE_TEXT1_PART_2, TITLE_TEXT1_PART_3, TITLE_TEXT2, TITLE_TEXT3 } from './constants';
+import { Title, Wrapper } from './styled';
 import { TimelineChart } from './TimelineChart';
 import { ITimelinePageProps } from './types';
 
@@ -21,49 +20,35 @@ export const connector = connect(mapStateToProps, mapDispatchToProps);
 class ChartSectionComp extends React.PureComponent<ITimelinePageProps> {
   constructor(props: ITimelinePageProps) {
     super(props);
+
+    this.getTitleText = this.getTitleText.bind(this);
   }
 
-  componentDidMount() {
-    this.loadTimelineForSelectedCurrency();
-  }
+  getTitleText() {
+    const { selectedCurrency, selectedDate, currencies } = this.props.currencyTimelines;
 
-  componentDidUpdate() {
-    this.loadTimelineForSelectedCurrency();
-  }
-
-  isCachedTimelineForSelectedCurrency() {
-    const { selectedCurrency, currencyTimelines } = this.props;
-    return Boolean(currencyTimelines[selectedCurrency]);
-  }
-
-  isRelevantTimelineSelectedCurrency() {
-    const { selectedCurrency, currencyTimelines } = this.props;
-    return isRelevantData(currencyTimelines[selectedCurrency]!.updateTimestamp);
-  }
-
-  loadTimelineForSelectedCurrency() {
-    const loadCurrencyTimeline = async () => {
-      try {
-        const response = await getCurrencyTimeline(this.props.selectedCurrency);
-        this.props.setCurrencyTimeline(response);
-        this.props.onEndLoading('updated');
-      } catch {
-        this.props.onEndLoading('error');
+    if (selectedCurrency && selectedDate) {
+      const { loadingStatus } = currencies[selectedCurrency]![selectedDate];
+      if (loadingStatus === 'updated') {
+        return `${TITLE_TEXT1_PART_1}${selectedCurrency}${TITLE_TEXT1_PART_2}${selectedDate}${TITLE_TEXT1_PART_3}`;
+      } else if (loadingStatus === 'updating') {
+        return TITLE_TEXT2;
       }
-    };
-
-    if (!this.isCachedTimelineForSelectedCurrency() || !this.isRelevantTimelineSelectedCurrency()) {
-      loadCurrencyTimeline();
+    } else {
+      return TITLE_TEXT3;
     }
   }
 
   render() {
     return (
-      <Container>
-        <Wrapper>
-          <TimelineChart />
-        </Wrapper>
-      </Container>
+      <section>
+        <Container>
+          <Wrapper>
+            <Title>{this.getTitleText()}</Title>
+            <TimelineChart />
+          </Wrapper>
+        </Container>
+      </section>
     );
   }
 }

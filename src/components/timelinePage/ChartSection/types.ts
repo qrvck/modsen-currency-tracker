@@ -2,11 +2,6 @@ import { ConnectedProps } from 'react-redux';
 
 import { connector } from './index';
 
-type ConnectedTimelinePageProps = ConnectedProps<typeof connector>;
-
-interface ITimelinePageProps extends ConnectedTimelinePageProps {
-  selectedCurrency: string;
-  onEndLoading: (value: 'updated' | 'error') => void;
-}
+type ITimelinePageProps = ConnectedProps<typeof connector>;
 
 export type { ITimelinePageProps };
