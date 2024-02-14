@@ -4,13 +4,10 @@ import { connect } from 'react-redux';
 import { UpdateStatus } from '@/components/common/UpdateStatus';
 import { ChartSection } from '@/components/timelinePage/ChartSection';
 import { ControlPanel } from '@/components/timelinePage/ControlPanelSection';
-import { QUOTE_CURRENCY_IDS } from '@/constants/currency';
 import { IRootState } from '@/store';
 import { setCurrencyTimeline } from '@/store/slices/currencyTimelinesSlice';
-import { IInitialState as ICurrencyTimelineState } from '@/store/slices/currencyTimelinesSlice/types';
-import { isRelevantData } from '@/utils';
 
-import { TimelinePageProps, TimelinePageState } from './types';
+import { TimelinePageProps } from './types';
 
 const mapStateToProps = (state: IRootState) => ({
   currencyTimelines: state.currencyTimelines,
@@ -19,42 +16,36 @@ const mapStateToProps = (state: IRootState) => ({
 const mapDispatchToProps = { setCurrencyTimeline };
 export const connector = connect(mapStateToProps, mapDispatchToProps);
 
-function getInitialStatusState(currencyTimeState: ICurrencyTimelineState, selectedCurrency: string) {
-  const currency = currencyTimeState[selectedCurrency];
-  if (currency) {
-    return isRelevantData(currency.updateTimestamp) ? 'updated' : 'updating';
-  } else {
-    return 'updating';
-  }
-}
-
-class TimelinePageComp extends React.Component<TimelinePageProps, TimelinePageState> {
+class TimelinePageComp extends React.Component<TimelinePageProps> {
   constructor(props: TimelinePageProps) {
     super(props);
-    this.state = {
-      selectedCurrency: QUOTE_CURRENCY_IDS[0],
-      status: getInitialStatusState(this.props.currencyTimelines, QUOTE_CURRENCY_IDS[0]),
-    };
-
-    this.handleEndChartSectionLoading = this.handleEndChartSectionLoading.bind(this);
+    this.getStatusSelectedCurrency = this.getStatusSelectedCurrency.bind(this);
   }
 
   getUpdateTimestamp() {
-    const { selectedCurrency } = this.state;
-    const { currencyTimelines } = this.props;
-    return currencyTimelines[selectedCurrency]?.updateTimestamp || 0;
+    const { selectedCurrency, selectedDate, currencies } = this.props.currencyTimelines;
+
+    if (selectedCurrency && selectedDate) {
+      return currencies[selectedCurrency]![selectedDate].updateTimestamp;
+    }
   }
 
-  handleEndChartSectionLoading(value: 'updated' | 'error') {
-    this.setState({ status: value });
-  }
+  getStatusSelectedCurrency = () => {
+    const { selectedCurrency, selectedDate, currencies } = this.props.currencyTimelines;
+
+    if (selectedCurrency && selectedDate) {
+      return currencies[selectedCurrency]![selectedDate].loadingStatus;
+    } else {
+      return 'updated';
+    }
+  };
 
   render() {
     return (
       <>
-        <UpdateStatus status={this.state.status} timestamp={this.getUpdateTimestamp()} />
+        <UpdateStatus status={this.getStatusSelectedCurrency()} timestamp={this.getUpdateTimestamp()} />
         <ControlPanel />
-        <ChartSection selectedCurrency={this.state.selectedCurrency} onEndLoading={this.handleEndChartSectionLoading} />
+        <ChartSection />
       </>
     );
   }
