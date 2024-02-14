@@ -12,6 +12,13 @@ import {
   setSelectedDate,
 } from '@/store/slices/currencyTimelinesSlice';
 
+import {
+  APPLY_BUTTON_TEXT,
+  CURRENCY_SELECT_HINT,
+  CURRENCY_SELECT_TITLE,
+  DATE_INPUT_HINT,
+  DATE_INPUT_TITLE,
+} from './constants';
 import { Hint, Select, Wrapper } from './styled';
 import { ControlPanelProps, ControlPanelState } from './types';
 
@@ -95,13 +102,13 @@ class ControlPanelComp extends React.Component<ControlPanelProps, ControlPanelSt
         <Container>
           <Wrapper>
             <div>
-              <p>select date:</p>
+              <p>{DATE_INPUT_TITLE}</p>
               <input type="date" value={this.state.date} max={getMaxDate()} onChange={this.handleChangeDate} />
-              <Hint>started min 30 days ago</Hint>
+              <Hint>{DATE_INPUT_HINT}</Hint>
             </div>
 
             <div>
-              <p>currency:</p>
+              <p>{CURRENCY_SELECT_TITLE}</p>
               <Select value={this.state.currency} onChange={this.handleChangeCurrency}>
                 <option value=""></option>
                 {QUOTE_CURRENCY_IDS.map((currency) => (
@@ -110,11 +117,11 @@ class ControlPanelComp extends React.Component<ControlPanelProps, ControlPanelSt
                   </option>
                 ))}
               </Select>
-              <Hint>select one</Hint>
+              <Hint>{CURRENCY_SELECT_HINT}</Hint>
             </div>
 
             <button disabled={this.isDisableApplyButton()} onClick={this.handleClickOnApplyButton}>
-              APPLY
+              {APPLY_BUTTON_TEXT}
             </button>
           </Wrapper>
         </Container>
