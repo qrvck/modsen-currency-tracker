@@ -30,6 +30,8 @@ const currencyTimelinesSlice = createSlice({
       const { currency, fromRequestDate, timelineData } = action.payload;
 
       state.currencies[currency] = {
+        ...state.currencies[currency],
+
         [fromRequestDate]: {
           timelineData,
           updateTimestamp: Date.now(),
@@ -42,6 +44,8 @@ const currencyTimelinesSlice = createSlice({
       const { currency, loadingStatus, fromRequestDate } = action.payload;
 
       state.currencies[currency] = {
+        ...state.currencies[currency],
+
         [fromRequestDate]: {
           timelineData: [],
           updateTimestamp: 0,
@@ -52,5 +56,6 @@ const currencyTimelinesSlice = createSlice({
   },
 });
 
-export const { setCurrencyTimeline, setSelectedDate, setSelectedCurrency } = currencyTimelinesSlice.actions;
+export const { setCurrencyTimeline, setSelectedDate, setSelectedCurrency, setLoadingStatusCurrencyTimeline } =
+  currencyTimelinesSlice.actions;
 export const { reducer: currencyTimelinesReduser } = currencyTimelinesSlice;

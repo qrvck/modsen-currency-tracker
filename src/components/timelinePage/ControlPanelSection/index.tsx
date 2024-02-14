@@ -1,10 +1,16 @@
 import React, { ChangeEvent } from 'react';
 import { connect } from 'react-redux';
 
+import { getCurrencyTimeline } from '@/api/currencyTimeline';
 import { Container } from '@/components/common/Container';
 import { QUOTE_CURRENCY_IDS } from '@/constants/currency';
 import { IRootState } from '@/store';
-import { setSelectedCurrency, setSelectedDate } from '@/store/slices/currencyTimelinesSlice';
+import {
+  setCurrencyTimeline,
+  setLoadingStatusCurrencyTimeline,
+  setSelectedCurrency,
+  setSelectedDate,
+} from '@/store/slices/currencyTimelinesSlice';
 
 import { Hint, Select, Wrapper } from './styled';
 import { ControlPanelProps, ControlPanelState } from './types';
@@ -13,7 +19,12 @@ const mapStateToProps = (state: IRootState) => ({
   currencyTimelines: state.currencyTimelines,
 });
 
-const mapDispatchToProps = { setSelectedCurrency, setSelectedDate };
+const mapDispatchToProps = {
+  setCurrencyTimeline,
+  setSelectedDate,
+  setSelectedCurrency,
+  setLoadingStatusCurrencyTimeline,
+};
 export const connector = connect(mapStateToProps, mapDispatchToProps);
 
 const getMaxDate = () => {
@@ -38,6 +49,7 @@ class ControlPanelComp extends React.Component<ControlPanelProps, ControlPanelSt
     this.handleChangeCurrency = this.handleChangeCurrency.bind(this);
     this.isDisableApplyButton = this.isDisableApplyButton.bind(this);
     this.handleClickOnApplyButton = this.handleClickOnApplyButton.bind(this);
+    this.loadCurrencyTimeline = this.loadCurrencyTimeline.bind(this);
   }
 
   handleChangeDate = (e: ChangeEvent<HTMLInputElement>) => {
@@ -54,10 +66,27 @@ class ControlPanelComp extends React.Component<ControlPanelProps, ControlPanelSt
   };
 
   handleClickOnApplyButton = () => {
-    const { setSelectedCurrency, setSelectedDate } = this.props;
+    const { setSelectedCurrency, setSelectedDate, currencyTimelines } = this.props;
     const { currency, date } = this.state;
     setSelectedCurrency(currency);
     setSelectedDate(date);
+
+    if (!currencyTimelines.currencies?.[currency]?.[date]) {
+      this.loadCurrencyTimeline();
+    }
+  };
+
+  loadCurrencyTimeline = async () => {
+    const { currency, date } = this.state;
+    const { setLoadingStatusCurrencyTimeline, setCurrencyTimeline } = this.props;
+
+    try {
+      setLoadingStatusCurrencyTimeline({ currency, fromRequestDate: date, loadingStatus: 'updating' });
+      const response = await getCurrencyTimeline(currency);
+      setCurrencyTimeline({ currency, fromRequestDate: date, timelineData: response.data });
+    } catch {
+      setLoadingStatusCurrencyTimeline({ currency, fromRequestDate: date, loadingStatus: 'error' });
+    }
   };
 
   render() {

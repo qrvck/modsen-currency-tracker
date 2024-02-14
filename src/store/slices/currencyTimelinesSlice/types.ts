@@ -8,14 +8,16 @@ interface IInitialState {
 
   currencies: {
     // this key - currency. for example: 'USDT', 'EUR'
-    [index: string]: {
-      // this key - from request date. for example: get data from '2023-03-01' plus 30days
-      [index: string]: {
-        timelineData: ICurrencyTimelineData[];
-        updateTimestamp: number;
-        loadingStatus: 'updating' | 'updated' | 'error';
-      };
-    };
+    [index: string]:
+      | {
+          // this key - from request date. for example: get data from '2023-03-01' plus 30days
+          [index: string]: {
+            timelineData: ICurrencyTimelineData[];
+            updateTimestamp: number;
+            loadingStatus: 'updating' | 'updated' | 'error';
+          };
+        }
+      | undefined;
   };
 }
 
