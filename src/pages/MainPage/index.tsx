@@ -14,7 +14,7 @@ function getInitialStatusState(timestamp: number) {
 
 function MainPage() {
   const { currencies, updateTimestamp } = useSelector((store: IRootState) => store.currentRates);
-  const [status, setStatus] = useState<'updated' | 'updating' | 'error'>(getInitialStatusState(updateTimestamp));
+  const [status, setStatus] = useState<'updated' | 'updating' | 'error'>(() => getInitialStatusState(updateTimestamp));
   const dispatch = useDispatch();
 
   useEffect(() => {
