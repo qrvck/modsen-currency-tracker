@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { ICurrencyTimelineData } from '@/api/currencyTimeline/types';
 import { Container } from '@/components/common/Container';
 import { IRootState } from '@/store';
 import { setCurrencyTimeline } from '@/store/slices/currencyTimelinesSlice';
@@ -22,30 +23,54 @@ class ChartSectionComp extends React.PureComponent<ITimelinePageProps> {
     super(props);
 
     this.getTitleText = this.getTitleText.bind(this);
+    this.getTimelineDataForDisplaying = this.getTimelineDataForDisplaying.bind(this);
+    this.convertTimelineDataForTimelineChart = this.convertTimelineDataForTimelineChart.bind(this);
   }
 
   getTitleText() {
     const { selectedCurrency, selectedDate, currencies } = this.props.currencyTimelines;
+    const loadingStatus = currencies[selectedCurrency]?.[selectedDate].loadingStatus;
 
-    if (selectedCurrency && selectedDate) {
-      const { loadingStatus } = currencies[selectedCurrency]![selectedDate];
-      if (loadingStatus === 'updated') {
-        return `${TITLE_TEXT1_PART_1}${selectedCurrency}${TITLE_TEXT1_PART_2}${selectedDate}${TITLE_TEXT1_PART_3}`;
-      } else if (loadingStatus === 'updating') {
-        return TITLE_TEXT2;
-      }
+    if (loadingStatus === 'updated') {
+      return `${TITLE_TEXT1_PART_1}${selectedCurrency}${TITLE_TEXT1_PART_2}${selectedDate}${TITLE_TEXT1_PART_3}`;
+    } else if (loadingStatus === 'updating') {
+      return TITLE_TEXT2;
     } else {
       return TITLE_TEXT3;
     }
   }
 
+  getTimelineDataForDisplaying() {
+    const { selectedCurrency, selectedDate, currencies } = this.props.currencyTimelines;
+    const loadingStatus = currencies[selectedCurrency]?.[selectedDate].loadingStatus;
+
+    if (loadingStatus === 'updated') {
+      return this.convertTimelineDataForTimelineChart(currencies[selectedCurrency]![selectedDate].timelineData);
+    } else {
+      return [];
+    }
+  }
+
+  convertTimelineDataForTimelineChart(data: ICurrencyTimelineData[]) {
+    return data.map(({ timestamp, price_open, price_high, price_low, price_close }) => {
+      return {
+        x: timestamp,
+        o: price_open,
+        h: price_high,
+        l: price_low,
+        c: price_close,
+      };
+    });
+  }
+
   render() {
+    console.log(123123);
     return (
       <section>
         <Container>
           <Wrapper>
             <Title>{this.getTitleText()}</Title>
-            <TimelineChart />
+            <TimelineChart timelineData={this.getTimelineDataForDisplaying()} />
           </Wrapper>
         </Container>
       </section>
