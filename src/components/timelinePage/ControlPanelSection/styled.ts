@@ -23,10 +23,19 @@ const Select = styled.select`
 const Hint = styled.p`
   margin-top: 3px;
   font-size: 8px;
+  line-height: inherit;
 
   @media (${({ theme }) => theme.media.medium}) {
     font-size: 16px;
   }
 `;
 
-export { Hint, Select, Wrapper };
+const Button = styled.button`
+  margin-bottom: -1px;
+
+  @media (${({ theme }) => theme.media.medium}) {
+    margin-bottom: -15px;
+  }
+`;
+
+export { Button, Hint, Select, Wrapper };

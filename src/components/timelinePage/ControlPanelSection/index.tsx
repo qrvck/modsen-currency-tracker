@@ -20,7 +20,7 @@ import {
   DATE_INPUT_HINT,
   DATE_INPUT_TITLE,
 } from './constants';
-import { Hint, Select, Wrapper } from './styled';
+import { Button, Hint, Select, Wrapper } from './styled';
 import { ControlPanelProps, ControlPanelState } from './types';
 
 const mapStateToProps = (state: IRootState) => ({
@@ -138,12 +138,12 @@ class ControlPanelComp extends React.Component<ControlPanelProps, ControlPanelSt
                 <Hint>{CURRENCY_SELECT_HINT}</Hint>
               </div>
 
-              <button disabled={this.isDisableApplyButton()} onClick={this.handleClickOnApplyButton}>
+              <Button disabled={this.isDisableApplyButton()} onClick={this.handleClickOnApplyButton}>
                 {APPLY_BUTTON_TEXT}
-              </button>
-              <button onClick={this.handleClickOnFixButton} disabled={this.isDisabledFixButton()}>
+              </Button>
+              <Button onClick={this.handleClickOnFixButton} disabled={this.isDisabledFixButton()}>
                 FIX
-              </button>
+              </Button>
             </Wrapper>
           </Container>
         </section>
