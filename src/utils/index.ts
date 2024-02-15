@@ -9,6 +9,29 @@ function getRandomInteger(min: number, max: number) {
   return Math.floor(rand);
 }
 
+function blockPageScrolling() {
+  const { scrollY } = window;
+  const bodyStyle = document.body.style;
+
+  bodyStyle.top = `-${scrollY}px`;
+  bodyStyle.left = '0';
+  bodyStyle.right = '0';
+  bodyStyle.position = 'fixed';
+  document.documentElement.style.scrollBehavior = 'auto';
+}
+
+function unblockPageScrolling() {
+  const bodyStyle = document.body.style;
+  const scrollY = bodyStyle.top;
+
+  bodyStyle.position = '';
+  bodyStyle.top = '';
+  bodyStyle.left = '';
+  bodyStyle.right = '';
+  window.scrollTo(0, parseInt(scrollY) * -1);
+  document.documentElement.style.scrollBehavior = '';
+}
+
 class Observer {
   fnListeners: {
     [index: string]: Array<() => void> | undefined;
@@ -45,4 +68,4 @@ class Observer {
   }
 }
 
-export { getRandomInteger, isRelevantData, Observer };
+export { blockPageScrolling, getRandomInteger, isRelevantData, Observer, unblockPageScrolling };

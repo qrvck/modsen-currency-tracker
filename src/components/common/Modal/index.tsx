@@ -1,6 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import ReactDOM from 'react-dom';
 
+import { blockPageScrolling, unblockPageScrolling } from '@/utils/index';
+
 import { Background, CloseButton, InnerBackground, ModalWrapper, Window } from './styled';
 import { IModal } from './types';
 
@@ -9,6 +11,9 @@ function Modal({ children, onClose }: IModal) {
 
   useEffect(() => {
     setIsFullView(true);
+    blockPageScrolling();
+
+    return unblockPageScrolling;
   }, []);
 
   const appRoot = useMemo(() => document.querySelector('#root')!, []);
