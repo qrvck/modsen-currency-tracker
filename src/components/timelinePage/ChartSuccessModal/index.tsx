@@ -3,6 +3,8 @@ import React from 'react';
 import { Modal } from '@/components/common/Modal';
 
 import { timelineChartObserver } from '../ChartSection/TimelineChart';
+import { TEXT_1, TEXT_2, TITLE_TEXT } from './constants';
+import { Text, Title, Wrapper } from './styled';
 import { IChartSuccessModalProps, IChartSuccessModalState } from './types';
 
 class ChartSuccessModal extends React.Component<IChartSuccessModalProps, IChartSuccessModalState> {
@@ -32,11 +34,11 @@ class ChartSuccessModal extends React.Component<IChartSuccessModalProps, IChartS
     if (this.state.isOpen) {
       return (
         <Modal onClose={this.onClose}>
-          <p>The chart for the currency you selected was successfully built!</p>
-          <p>
-            You can also specify a different currency and date and view the available information. It&apos;s simple and
-            free for everyone
-          </p>
+          <Wrapper>
+            <Title>{TITLE_TEXT}</Title>
+            <Text>{TEXT_1}</Text>
+            <Text>{TEXT_2}</Text>
+          </Wrapper>
         </Modal>
       );
     } else {
