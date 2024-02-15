@@ -33,6 +33,10 @@ class TimelineChart extends React.Component<ChartProps> {
 
   componentDidUpdate() {
     this.displayChart();
+
+    if (this.props.timelineData.length) {
+      this.events.notify('successfulCharting');
+    }
   }
 
   displayChart() {
@@ -58,10 +62,6 @@ class TimelineChart extends React.Component<ChartProps> {
         ],
       },
     });
-
-    if (timelineData.length) {
-      this.events.notify('successfulCharting');
-    }
   }
 
   render() {
