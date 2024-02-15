@@ -64,7 +64,6 @@ class ChartSectionComp extends React.PureComponent<ITimelinePageProps> {
   }
 
   render() {
-    console.log(123123);
     return (
       <section>
         <Container>
