@@ -12,6 +12,7 @@ import {
   setSelectedDate,
 } from '@/store/slices/currencyTimelinesSlice';
 
+import { FixModal } from '../FixModal';
 import {
   APPLY_BUTTON_TEXT,
   CURRENCY_SELECT_HINT,
@@ -50,13 +51,13 @@ class ControlPanelComp extends React.Component<ControlPanelProps, ControlPanelSt
     this.state = {
       date: this.props.currencyTimelines.selectedDate,
       currency: this.props.currencyTimelines.selectedCurrency,
+      isOpenFixModal: false,
     };
 
     this.handleChangeDate = this.handleChangeDate.bind(this);
     this.handleChangeCurrency = this.handleChangeCurrency.bind(this);
     this.isDisableApplyButton = this.isDisableApplyButton.bind(this);
     this.handleClickOnApplyButton = this.handleClickOnApplyButton.bind(this);
-    this.loadCurrencyTimeline = this.loadCurrencyTimeline.bind(this);
   }
 
   handleChangeDate = (e: ChangeEvent<HTMLInputElement>) => {
@@ -69,7 +70,8 @@ class ControlPanelComp extends React.Component<ControlPanelProps, ControlPanelSt
 
   isDisableApplyButton = () => {
     const { date, currency } = this.state;
-    return !date || !currency;
+    const { selectedCurrency, selectedDate } = this.props.currencyTimelines;
+    return !date || !currency || (selectedCurrency === currency && selectedDate === date);
   };
 
   handleClickOnApplyButton = () => {
@@ -97,36 +99,57 @@ class ControlPanelComp extends React.Component<ControlPanelProps, ControlPanelSt
     }
   };
 
+  handleCloseFixModal = () => {
+    this.setState({ isOpenFixModal: false });
+  };
+
+  isDisabledFixButton = () => {
+    const { selectedCurrency, selectedDate, currencies } = this.props.currencyTimelines;
+
+    return currencies[selectedCurrency]?.[selectedDate].loadingStatus !== 'updated';
+  };
+
+  handleClickOnFixButton = () => {
+    this.setState({ isOpenFixModal: true });
+  };
+
   render() {
     return (
-      <section>
-        <Container>
-          <Wrapper>
-            <div>
-              <p>{DATE_INPUT_TITLE}</p>
-              <input type="date" value={this.state.date} max={getMaxDate()} onChange={this.handleChangeDate} />
-              <Hint>{DATE_INPUT_HINT}</Hint>
-            </div>
+      <>
+        <section>
+          <Container>
+            <Wrapper>
+              <div>
+                <p>{DATE_INPUT_TITLE}</p>
+                <input type="date" value={this.state.date} max={getMaxDate()} onChange={this.handleChangeDate} />
+                <Hint>{DATE_INPUT_HINT}</Hint>
+              </div>
 
-            <div>
-              <p>{CURRENCY_SELECT_TITLE}</p>
-              <Select value={this.state.currency} onChange={this.handleChangeCurrency}>
-                <option value=""></option>
-                {QUOTE_CURRENCY_IDS.map((currency) => (
-                  <option key={currency} value={currency}>
-                    {currency}
-                  </option>
-                ))}
-              </Select>
-              <Hint>{CURRENCY_SELECT_HINT}</Hint>
-            </div>
+              <div>
+                <p>{CURRENCY_SELECT_TITLE}</p>
+                <Select value={this.state.currency} onChange={this.handleChangeCurrency}>
+                  <option value=""></option>
+                  {QUOTE_CURRENCY_IDS.map((currency) => (
+                    <option key={currency} value={currency}>
+                      {currency}
+                    </option>
+                  ))}
+                </Select>
+                <Hint>{CURRENCY_SELECT_HINT}</Hint>
+              </div>
 
-            <button disabled={this.isDisableApplyButton()} onClick={this.handleClickOnApplyButton}>
-              {APPLY_BUTTON_TEXT}
-            </button>
-          </Wrapper>
-        </Container>
-      </section>
+              <button disabled={this.isDisableApplyButton()} onClick={this.handleClickOnApplyButton}>
+                {APPLY_BUTTON_TEXT}
+              </button>
+              <button onClick={this.handleClickOnFixButton} disabled={this.isDisabledFixButton()}>
+                FIX
+              </button>
+            </Wrapper>
+          </Container>
+        </section>
+
+        {this.state.isOpenFixModal && <FixModal onClose={this.handleCloseFixModal} />}
+      </>
     );
   }
 }
