@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Modal } from '@/components/common/Modal';
 
+import { timelineChartObserver } from '../ChartSection/TimelineChart';
 import { IChartSuccessModalProps, IChartSuccessModalState } from './types';
 
 class ChartSuccessModal extends React.Component<IChartSuccessModalProps, IChartSuccessModalState> {
@@ -13,6 +14,10 @@ class ChartSuccessModal extends React.Component<IChartSuccessModalProps, IChartS
 
     this.onClose = this.onClose.bind(this);
     this.update = this.update.bind(this);
+  }
+
+  componentDidMount(): void {
+    timelineChartObserver.subscribe('successfulCharting', this.update);
   }
 
   onClose() {
