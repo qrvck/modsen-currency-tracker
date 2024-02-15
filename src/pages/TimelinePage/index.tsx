@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { UpdateStatus } from '@/components/common/UpdateStatus';
 import { ChartSection } from '@/components/timelinePage/ChartSection';
+import { ChartSuccessModal } from '@/components/timelinePage/ChartSuccessModal';
 import { ControlPanel } from '@/components/timelinePage/ControlPanelSection';
 import { IRootState } from '@/store';
 import { setCurrencyTimeline } from '@/store/slices/currencyTimelinesSlice';
@@ -46,6 +47,7 @@ class TimelinePageComp extends React.Component<TimelinePageProps> {
         <UpdateStatus status={this.getStatusSelectedCurrency()} timestamp={this.getUpdateTimestamp()} />
         <ControlPanel />
         <ChartSection />
+        <ChartSuccessModal />
       </>
     );
   }
