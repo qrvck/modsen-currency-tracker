@@ -58,6 +58,10 @@ const GlobalStyles = createGlobalStyle`
 
   button {
     cursor: pointer;
+
+    &:disabled {
+      cursor: auto;
+    }
   }
 
   svg {
