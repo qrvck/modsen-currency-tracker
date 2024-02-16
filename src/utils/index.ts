@@ -32,6 +32,15 @@ function unblockPageScrolling() {
   document.documentElement.style.scrollBehavior = '';
 }
 
+function convertTimestampToStringDate(timestamp: number) {
+  const date = new Date(timestamp);
+  const fullYear = date.getFullYear();
+  const fullMonth = date.getMonth() < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
+  const fullDate = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+
+  return `${fullYear}-${fullMonth}-${fullDate}`;
+}
+
 class Observer {
   fnListeners: {
     [index: string]: Array<() => void> | undefined;
@@ -68,4 +77,11 @@ class Observer {
   }
 }
 
-export { blockPageScrolling, getRandomInteger, isRelevantData, Observer, unblockPageScrolling };
+export {
+  blockPageScrolling,
+  convertTimestampToStringDate,
+  getRandomInteger,
+  isRelevantData,
+  Observer,
+  unblockPageScrolling,
+};

@@ -30,6 +30,10 @@ const Fieldset = styled.div`
   }
 `;
 
+const PriceInput = styled.input.attrs({ type: 'number' })`
+  text-align: right;
+`;
+
 const SaveButton = styled.button`
   display: block;
   margin: 10px auto 0;
@@ -39,4 +43,4 @@ const SaveButton = styled.button`
   }
 `;
 
-export { Fieldset, SaveButton, Title, Wrapper };
+export { Fieldset, PriceInput, SaveButton, Title, Wrapper };

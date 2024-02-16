@@ -11,6 +11,7 @@ import {
   setSelectedCurrency,
   setSelectedDate,
 } from '@/store/slices/currencyTimelinesSlice';
+import { convertTimestampToStringDate } from '@/utils';
 
 import { FixModal } from '../FixModal';
 import {
@@ -37,12 +38,8 @@ export const connector = connect(mapStateToProps, mapDispatchToProps);
 
 const getMaxDate = () => {
   const millisecondsIn29Days = 2505600000;
-  const date29DaysAgo = new Date(Date.now() - millisecondsIn29Days);
-  const fullYear = date29DaysAgo.getFullYear();
-  const fullMonth = date29DaysAgo.getMonth() < 10 ? `0${date29DaysAgo.getMonth() + 1}` : date29DaysAgo.getMonth() + 1;
-  const fullDate = date29DaysAgo.getDate() < 10 ? `0${date29DaysAgo.getDate()}` : date29DaysAgo.getDate();
-
-  return `${fullYear}-${fullMonth}-${fullDate}`;
+  const timestamp29DaysAgo = Date.now() - millisecondsIn29Days;
+  return convertTimestampToStringDate(timestamp29DaysAgo);
 };
 
 class ControlPanelComp extends React.Component<ControlPanelProps, ControlPanelState> {
@@ -113,6 +110,17 @@ class ControlPanelComp extends React.Component<ControlPanelProps, ControlPanelSt
     this.setState({ isOpenFixModal: true });
   };
 
+  getTimelineDataForFixModal = () => {
+    const { selectedCurrency, selectedDate, currencies } = this.props.currencyTimelines;
+    const currencyData = currencies[selectedCurrency]?.[selectedDate];
+
+    if (currencyData && currencyData.loadingStatus === 'updated') {
+      return currencyData.timelineData;
+    }
+
+    return [];
+  };
+
   render() {
     return (
       <>
@@ -148,7 +156,9 @@ class ControlPanelComp extends React.Component<ControlPanelProps, ControlPanelSt
           </Container>
         </section>
 
-        {this.state.isOpenFixModal && <FixModal onClose={this.handleCloseFixModal} />}
+        {this.state.isOpenFixModal && (
+          <FixModal onClose={this.handleCloseFixModal} timelineData={this.getTimelineDataForFixModal()} />
+        )}
       </>
     );
   }

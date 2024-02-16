@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 
 import { Modal } from '@/components/common/Modal';
+import { convertTimestampToStringDate } from '@/utils';
 
 import {
   DATE_LEGEND_TEXT,
@@ -11,10 +12,46 @@ import {
   SAVE_BUTTON_TEXT,
   TITLE_TEXT,
 } from './constants';
-import { Fieldset, SaveButton, Title, Wrapper } from './styled';
-import { IFixModalProps } from './types';
+import { Fieldset, PriceInput, SaveButton, Title, Wrapper } from './styled';
+import { IFixModalProps, IFixModalState, IPossibleKeysState } from './types';
 
-class FixModal extends React.Component<IFixModalProps> {
+class FixModal extends React.Component<IFixModalProps, IFixModalState> {
+  state = {
+    selectedDateIndex: 0,
+    priceClose: this.props.timelineData[0].price_close,
+    priceHigh: this.props.timelineData[0].price_high,
+    priceLow: this.props.timelineData[0].price_low,
+    priceOpen: this.props.timelineData[0].price_open,
+  };
+
+  handleChangeSelect = (e: ChangeEvent<HTMLSelectElement>) => {
+    const value = +e.target.value;
+    const timelineData = this.props.timelineData[value];
+
+    this.setState({
+      selectedDateIndex: +value,
+      priceClose: timelineData.price_close,
+      priceHigh: timelineData.price_high,
+      priceLow: timelineData.price_low,
+      priceOpen: timelineData.price_open,
+    });
+  };
+
+  handleChangePriceInput = (
+    e: ChangeEvent<HTMLInputElement>,
+    type: 'priceClose' | 'priceHigh' | 'priceLow' | 'priceOpen' | 'selectedDateIndex'
+  ) => {
+    const value = +e.target.value;
+    this.setState({ [type]: value } as { [index in IPossibleKeysState]: number });
+  };
+
+  isDisabledSaveButton = () => {
+    const { selectedDateIndex, priceClose, priceHigh, priceLow, priceOpen } = this.state;
+    const { price_close, price_high, price_low, price_open } = this.props.timelineData[selectedDateIndex];
+
+    return priceClose === price_close && priceHigh === price_high && priceLow === price_low && priceOpen === price_open;
+  };
+
   render() {
     return (
       <Modal onClose={this.props.onClose}>
@@ -23,32 +60,52 @@ class FixModal extends React.Component<IFixModalProps> {
 
           <Fieldset>
             <p>{DATE_LEGEND_TEXT}</p>
-            <select>
-              <option value="">дата</option>
+            <select value={this.state.selectedDateIndex} onChange={this.handleChangeSelect}>
+              {this.props.timelineData.map(({ timestamp }, index) => (
+                <option value={index} key={timestamp}>
+                  {convertTimestampToStringDate(timestamp)}
+                </option>
+              ))}
             </select>
           </Fieldset>
 
           <Fieldset>
             <p>{PRICE_OPEN_LEGEND_TEXT}</p>
-            <input type="number" />
+            <PriceInput
+              type="number"
+              value={this.state.priceOpen}
+              onChange={(e) => this.handleChangePriceInput(e, 'priceOpen')}
+            />
           </Fieldset>
 
           <Fieldset>
             <p>{PRICE_CLOSE_LEGEND_TEXT}</p>
-            <input type="number" />
+            <PriceInput
+              type="number"
+              value={this.state.priceClose}
+              onChange={(e) => this.handleChangePriceInput(e, 'priceClose')}
+            />
           </Fieldset>
 
           <Fieldset>
             <p>{PRICE_HIGH_LEGEND_TEXT}</p>
-            <input type="number" />
+            <PriceInput
+              type="number"
+              value={this.state.priceHigh}
+              onChange={(e) => this.handleChangePriceInput(e, 'priceHigh')}
+            />
           </Fieldset>
 
           <Fieldset>
             <p>{PRICE_LOW_LEGEND_TEXT}</p>
-            <input type="number" />
+            <PriceInput
+              type="number"
+              value={this.state.priceLow}
+              onChange={(e) => this.handleChangePriceInput(e, 'priceLow')}
+            />
           </Fieldset>
 
-          <SaveButton>{SAVE_BUTTON_TEXT}</SaveButton>
+          <SaveButton disabled={this.isDisabledSaveButton()}>{SAVE_BUTTON_TEXT}</SaveButton>
         </Wrapper>
       </Modal>
     );
