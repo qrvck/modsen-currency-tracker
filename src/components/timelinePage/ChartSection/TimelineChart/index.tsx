@@ -31,10 +31,13 @@ class TimelineChart extends React.Component<ChartProps> {
     this.displayChart();
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps: ChartProps) {
     this.displayChart();
 
-    if (this.props.timelineData.length) {
+    const { timelineData: prevTimelineData } = prevProps;
+    const { timelineData } = this.props;
+
+    if (prevTimelineData.length === 0 && timelineData.length > 0) {
       this.events.notify('successfulCharting');
     }
   }

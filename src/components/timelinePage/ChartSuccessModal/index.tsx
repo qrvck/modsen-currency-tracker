@@ -18,7 +18,7 @@ class ChartSuccessModal extends React.Component<IChartSuccessModalProps, IChartS
     this.update = this.update.bind(this);
   }
 
-  componentDidMount(): void {
+  componentDidMount() {
     timelineChartObserver.subscribe('successfulCharting', this.update);
   }
 
