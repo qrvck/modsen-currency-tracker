@@ -36,10 +36,19 @@ type ISetLoadingStatusCurrencyTimeline = PayloadAction<{
 type ISetSelectedDate = PayloadAction<string>;
 type ISetSelectedCurrency = PayloadAction<string>;
 
+type IUpdateTimelineData = PayloadAction<{
+  selectedDateIndex: number;
+  priceClose: number;
+  priceHigh: number;
+  priceLow: number;
+  priceOpen: number;
+}>;
+
 export type {
   IInitialState,
   ISetCurrencyTimeline,
   ISetLoadingStatusCurrencyTimeline,
   ISetSelectedCurrency,
   ISetSelectedDate,
+  IUpdateTimelineData,
 };

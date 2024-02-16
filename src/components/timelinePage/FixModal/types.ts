@@ -1,6 +1,12 @@
+import { ConnectedProps } from 'react-redux';
+
 import { ICurrencyTimelineData } from '@/api/currencyTimeline/types';
 
-interface IFixModalProps {
+import { connector } from './index';
+
+type IFixModalConnectedProps = ConnectedProps<typeof connector>;
+
+interface IFixModalProps extends IFixModalConnectedProps {
   onClose: () => void;
   timelineData: ICurrencyTimelineData[];
 }

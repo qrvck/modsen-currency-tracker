@@ -1,6 +1,9 @@
 import React, { ChangeEvent } from 'react';
+import { connect } from 'react-redux';
 
 import { Modal } from '@/components/common/Modal';
+import { IRootState } from '@/store';
+import { updateSelectedTimelineData } from '@/store/slices/currencyTimelinesSlice';
 import { convertTimestampToStringDate } from '@/utils';
 
 import {
@@ -15,7 +18,16 @@ import {
 import { Fieldset, PriceInput, SaveButton, Title, Wrapper } from './styled';
 import { IFixModalProps, IFixModalState, IPossibleKeysState } from './types';
 
-class FixModal extends React.Component<IFixModalProps, IFixModalState> {
+const mapStateToProps = (state: IRootState) => ({
+  currencyTimelines: state.currencyTimelines,
+});
+
+const mapDispatchToProps = {
+  updateSelectedTimelineData,
+};
+export const connector = connect(mapStateToProps, mapDispatchToProps);
+
+class FixModalComp extends React.Component<IFixModalProps, IFixModalState> {
   state = {
     selectedDateIndex: 0,
     priceClose: this.props.timelineData[0].price_close,
@@ -50,6 +62,10 @@ class FixModal extends React.Component<IFixModalProps, IFixModalState> {
     const { price_close, price_high, price_low, price_open } = this.props.timelineData[selectedDateIndex];
 
     return priceClose === price_close && priceHigh === price_high && priceLow === price_low && priceOpen === price_open;
+  };
+
+  handleClickOnSaveButton = () => {
+    this.props.updateSelectedTimelineData(this.state);
   };
 
   render() {
@@ -105,11 +121,13 @@ class FixModal extends React.Component<IFixModalProps, IFixModalState> {
             />
           </Fieldset>
 
-          <SaveButton disabled={this.isDisabledSaveButton()}>{SAVE_BUTTON_TEXT}</SaveButton>
+          <SaveButton onClick={this.handleClickOnSaveButton} disabled={this.isDisabledSaveButton()}>
+            {SAVE_BUTTON_TEXT}
+          </SaveButton>
         </Wrapper>
       </Modal>
     );
   }
 }
 
-export { FixModal };
+export const FixModal = connector(FixModalComp);
