@@ -68,7 +68,17 @@ class ControlPanelComp extends React.Component<ControlPanelProps, ControlPanelSt
   isDisableApplyButton = () => {
     const { date, currency } = this.state;
     const { selectedCurrency, selectedDate } = this.props.currencyTimelines;
-    return !date || !currency || (selectedCurrency === currency && selectedDate === date);
+
+    const isEmptyState = !date || !currency;
+    const isUpdatedStore = selectedCurrency === currency && selectedDate === date;
+    const isInvalidDate = this.isInvalidDate();
+
+    return isEmptyState || isUpdatedStore || isInvalidDate;
+  };
+
+  isInvalidDate = () => {
+    const { date } = this.state;
+    return new Date(date) > new Date(getMaxDate());
   };
 
   handleClickOnApplyButton = () => {
@@ -130,7 +140,7 @@ class ControlPanelComp extends React.Component<ControlPanelProps, ControlPanelSt
               <div>
                 <p>{DATE_INPUT_TITLE}</p>
                 <input type="date" value={this.state.date} max={getMaxDate()} onChange={this.handleChangeDate} />
-                <Hint>{DATE_INPUT_HINT}</Hint>
+                <Hint $isError={this.isInvalidDate()}>{DATE_INPUT_HINT}</Hint>
               </div>
 
               <div>

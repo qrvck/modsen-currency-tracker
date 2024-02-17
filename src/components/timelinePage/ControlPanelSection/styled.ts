@@ -20,10 +20,11 @@ const Select = styled.select`
   }
 `;
 
-const Hint = styled.p`
+const Hint = styled.p<{ $isError?: boolean }>`
   margin-top: 3px;
   font-size: 8px;
   line-height: inherit;
+  color: ${({ $isError, theme }) => ($isError ? theme.colors.red : '')};
 
   @media (${({ theme }) => theme.media.medium}) {
     font-size: 16px;
