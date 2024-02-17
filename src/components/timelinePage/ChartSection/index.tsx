@@ -30,9 +30,10 @@ class ChartSectionComp extends React.PureComponent<ITimelinePageProps> {
   getTitleText() {
     const { selectedCurrency, selectedDate, currencies } = this.props.currencyTimelines;
     const loadingStatus = currencies[selectedCurrency]?.[selectedDate].loadingStatus;
+    const date = selectedDate.split('-').reverse().join('-');
 
     if (loadingStatus === 'updated') {
-      return `${TITLE_TEXT1_PART_1}${selectedCurrency}${TITLE_TEXT1_PART_2}${selectedDate}${TITLE_TEXT1_PART_3}`;
+      return `${TITLE_TEXT1_PART_1}${selectedCurrency}${TITLE_TEXT1_PART_2}${date}${TITLE_TEXT1_PART_3}`;
     } else if (loadingStatus === 'updating') {
       return TITLE_TEXT2;
     } else {
