@@ -7,6 +7,7 @@ import React from 'react';
 
 import { Observer } from '@/utils';
 
+import { InnerWrapper, OuterWrapper } from './styled';
 import { ChartProps, IChart } from './types';
 
 const timelineChartObserver = new Observer();
@@ -53,7 +54,6 @@ class TimelineChart extends React.Component<ChartProps> {
       data: {
         datasets: [
           {
-            label: '',
             data: timelineData,
             // @ts-expect-error expected error due to compatibility between chart.js and chartjs-chart-financial
             color: {
@@ -64,11 +64,27 @@ class TimelineChart extends React.Component<ChartProps> {
           },
         ],
       },
+
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          },
+        },
+      },
     });
   }
 
   render() {
-    return <canvas ref={this.chartRef} />;
+    return (
+      <OuterWrapper>
+        <InnerWrapper>
+          <canvas ref={this.chartRef} />
+        </InnerWrapper>
+      </OuterWrapper>
+    );
   }
 }
 
