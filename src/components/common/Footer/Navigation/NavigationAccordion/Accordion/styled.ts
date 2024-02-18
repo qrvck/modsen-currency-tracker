@@ -9,10 +9,8 @@ const Title = styled.button<{ $isOpen: boolean }>`
   width: 100%;
   padding-right: 20px;
 
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-  letter-spacing: -0.01em;
+  background-color: transparent;
+  border: none;
 `;
 
 const ArrowIcon = styled.svg<{ $animationDuration: number; $isRotate: boolean }>`

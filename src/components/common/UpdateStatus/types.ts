@@ -1,6 +1,6 @@
 interface IUpdateStatus {
   status: 'updated' | 'updating' | 'error';
-  time: string;
+  timestamp?: number;
 }
 
 export type { IUpdateStatus };
