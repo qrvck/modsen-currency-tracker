@@ -1,15 +1,18 @@
 import React, { ChangeEvent } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { useTheme } from '@/themes/ThemeProvider';
+import { IRootState } from '@/store';
+import { setIsDark } from '@/store/slices/themeProviderSlice';
 
 import { Checkbox, Label, Slider } from './styled';
 
 function Switcher() {
-  const { isDark, updateIsDark } = useTheme();
+  const { isDark } = useSelector((store: IRootState) => store.themeProvider);
+  const dispatch = useDispatch();
 
   const handleChangeCheckbox = (e: ChangeEvent<HTMLInputElement>) => {
     const isChecked = e.target.checked;
-    updateIsDark(isChecked);
+    dispatch(setIsDark(isChecked));
   };
 
   return (

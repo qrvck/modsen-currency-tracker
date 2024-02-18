@@ -5,11 +5,13 @@ import storage from 'redux-persist/lib/storage';
 import { convertedCurrenciesReduser } from './slices/convertedCurrenciesSlice';
 import { currencyTimelinesReduser } from './slices/currencyTimelinesSlice';
 import { currentRatesReduser } from './slices/currentRatesSlice';
+import { themeProviderReducer } from './slices/themeProviderSlice';
 
 const rootReducer = combineReducers({
   currentRates: currentRatesReduser,
   convertedCurrencies: convertedCurrenciesReduser,
   currencyTimelines: currencyTimelinesReduser,
+  themeProvider: themeProviderReducer,
 });
 
 const persistConfig = {
