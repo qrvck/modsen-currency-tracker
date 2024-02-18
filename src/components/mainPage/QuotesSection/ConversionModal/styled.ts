@@ -46,16 +46,18 @@ const Select = styled.select`
   }
 `;
 
-const TextHint = styled.p`
-  font-size: 10px;
-  margin-top: 15px;
-
-  color: ${({ theme }) => theme.colors.inverted.fifth};
+const ValueDataWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
 
   @media (${({ theme }) => theme.media.medium}) {
     margin-top: 25px;
-    font-size: 18px;
   }
 `;
 
-export { ConverterText, ConverterWrapper, Select, Subtitle, TextHint, Title, Wrapper };
+const CurrencySoldInput = styled.input.attrs({ type: 'number' })`
+  text-align: right;
+`;
+
+export { ConverterText, ConverterWrapper, CurrencySoldInput, Select, Subtitle, Title, ValueDataWrapper, Wrapper };

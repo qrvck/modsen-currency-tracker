@@ -10,14 +10,24 @@ import { isRelevantData } from '@/utils';
 
 import {
   CONVERTER_TEXT,
+  CURRENCY_SOLD_TITLE_TEXT,
   DECIMAL_NUMBER,
-  OUTPUT_TEXT,
+  ERROR_TEXT,
+  LOADING_TEXT,
+  OUTPUT_TITLE_TEXT,
   SUBTITLE_PART_1,
   SUBTITLE_PART_2,
-  TEXT_HINT_PART_1,
-  TEXT_HINT_PART_2,
 } from './constants';
-import { ConverterText, ConverterWrapper, Select, Subtitle, TextHint, Title, Wrapper } from './styled';
+import {
+  ConverterText,
+  ConverterWrapper,
+  CurrencySoldInput,
+  Select,
+  Subtitle,
+  Title,
+  ValueDataWrapper,
+  Wrapper,
+} from './styled';
 import { IConversionModal } from './types';
 
 function ConversionModal({ currencyID, onClose }: IConversionModal) {
@@ -28,7 +38,8 @@ function ConversionModal({ currencyID, onClose }: IConversionModal) {
 
   const convertedCurrenciesStore = useSelector((store: IRootState) => store.convertedCurrencies);
   const [selectValue, setSelectValue] = useState(availableCurrencyForConversion[0]);
-  const [convertedRate, setConvertedRate] = useState<number | null>(null);
+  const [rate, setRate] = useState<number | null>(null);
+  const [amountOfCurrencySold, setAmountOfCurrencySold] = useState<number>(1);
   const [isError, setIsError] = useState(false);
   const dispatch = useDispatch();
 
@@ -36,16 +47,16 @@ function ConversionModal({ currencyID, onClose }: IConversionModal) {
     const convertedCurrency = convertedCurrenciesStore[`${currencyID}-${selectValue}`];
 
     if (convertedCurrency && isRelevantData(convertedCurrency.updateTimestamp)) {
-      setConvertedRate(convertedCurrency.rate);
+      setRate(convertedCurrency.rate);
       setIsError(false);
     } else {
       const loadConvertCurrency = async () => {
         try {
-          setConvertedRate(null);
+          setRate(null);
           setIsError(false);
           const response = await convertCurrency(currencyID, selectValue);
           dispatch(setConvertedCurrency(response.data));
-          setConvertedRate(response.data.rate);
+          setRate(response.data.rate);
         } catch {
           setIsError(true);
         }
@@ -57,6 +68,16 @@ function ConversionModal({ currencyID, onClose }: IConversionModal) {
 
   const handleChangeSelect = (e: ChangeEvent<HTMLSelectElement>) => {
     setSelectValue(e.target.value);
+  };
+
+  const handleChangeAmountOfCurrencySold = (e: ChangeEvent<HTMLInputElement>) => {
+    setAmountOfCurrencySold(+e.target.value);
+  };
+
+  const getOutputValue = () => {
+    if (isError) return ERROR_TEXT;
+    if (!rate && !isError) return LOADING_TEXT;
+    if (rate) return (amountOfCurrencySold * rate).toFixed(DECIMAL_NUMBER);
   };
 
   return (
@@ -80,18 +101,15 @@ function ConversionModal({ currencyID, onClose }: IConversionModal) {
           </Select>
         </ConverterWrapper>
 
-        <p>
-          {OUTPUT_TEXT}
-          {convertedRate?.toFixed(DECIMAL_NUMBER)}
-          {!convertedRate && !isError && 'loading...'}
-          {isError && 'error'}
-        </p>
+        <ValueDataWrapper>
+          <p>{CURRENCY_SOLD_TITLE_TEXT}</p>
+          <CurrencySoldInput type="number" value={amountOfCurrencySold} onChange={handleChangeAmountOfCurrencySold} />
+        </ValueDataWrapper>
 
-        {convertedRate && !isError && (
-          <TextHint>
-            {TEXT_HINT_PART_1} <br /> {convertedRate} {selectValue} {TEXT_HINT_PART_2} {currencyID}
-          </TextHint>
-        )}
+        <ValueDataWrapper>
+          <p>{OUTPUT_TITLE_TEXT}</p>
+          <output>{getOutputValue()}</output>
+        </ValueDataWrapper>
       </Wrapper>
     </Modal>
   );
