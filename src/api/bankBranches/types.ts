@@ -1,13 +1,13 @@
-type IResponseData = BankBranch[];
+type IResponseData = IBankBranch[];
 
-interface BankBranch {
+interface IBankBranch {
   bankId: string;
   availableCurrency: string;
 
   postalAddress: {
     buildingNumber: string;
     streetName: string;
-    description: string | null;
+    townName: string;
 
     geolocation: {
       latitude: number;
@@ -16,4 +16,4 @@ interface BankBranch {
   };
 }
 
-export type { IResponseData };
+export type { IBankBranch, IResponseData };

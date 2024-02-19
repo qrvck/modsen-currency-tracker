@@ -4,30 +4,19 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl';
 import React from 'react';
 
+import { IBankBranch } from '@/api/bankBranches/types';
+
 import { MapContainer } from './styled';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoicXJ2Y2siLCJhIjoiY2xzczVidmJvMGQzZjJscXNmaTRnMHJzNSJ9.N9_Hl8i3QgNrDcABFZQb5g';
 
-const data = [
-  {
-    addressLine: 'ул. Соломовой, 82',
-    description: 'Магазин "Фламинго"',
-    geolocation: { latitude: 53.663425, longitude: 23.784927 },
-  },
-  {
-    addressLine: 'переулок Пожарный, 17-1',
-    description: 'ОАО "Банк БелВЭБ"',
-    geolocation: { latitude: 53.89827, longitude: 30.337175 },
-  },
-  {
-    addressLine: 'ул. Перспективная, 12',
-    description: 'Универсам "Славянский"',
-    geolocation: { latitude: 53.931282, longitude: 27.357094 },
-  },
-];
+interface IMapProps {
+  bankBranches: IBankBranch[];
+}
 
-class Map extends React.PureComponent {
+class Map extends React.PureComponent<IMapProps> {
   mapContainer = React.createRef<HTMLDivElement>();
+  map: mapboxgl.Map | null = null;
 
   componentDidMount() {
     const mapContainer = this.mapContainer.current;
@@ -40,18 +29,48 @@ class Map extends React.PureComponent {
         zoom: 10,
       });
 
+      this.map = map;
+
       map.on('load', () => {
-        for (const item of data) {
+        const { bankBranches } = this.props;
+
+        for (const branch of bankBranches) {
+          const {
+            postalAddress: { buildingNumber, streetName, townName, geolocation },
+          } = branch;
+
           new mapboxgl.Marker()
-            .setLngLat([item.geolocation.longitude, item.geolocation.latitude])
+            .setLngLat([geolocation.longitude, geolocation.latitude])
             .setPopup(
-              new mapboxgl.Popup({ offset: 25 }).setHTML(`<h3>${item.addressLine}</h3><p>${item.description}</p>`)
+              new mapboxgl.Popup({ offset: 25 }).setHTML(`<h3>${streetName} ${buildingNumber}</h3><p>${townName}</p>`)
             )
             .addTo(map);
         }
       });
     }
   }
+
+  // componentDidUpdate() {
+  //   const map = this.map;
+  //   const { bankBranches } = this.props;
+
+  //   if (map) {
+  //     for (const branch of bankBranches) {
+  //       const {
+  //         postalAddress: { buildingNumber, streetName, description, geolocation },
+  //       } = branch;
+
+  //       new mapboxgl.Marker()
+  //         .setLngLat([geolocation.longitude, geolocation.latitude])
+  //         .setPopup(
+  //           new mapboxgl.Popup({ offset: 25 }).setHTML(
+  //             `<h3>${streetName} ${buildingNumber}</h3>${description && <p>${description}</p>}`
+  //           )
+  //         )
+  //         .addTo(map);
+  //     }
+  //   }
+  // }
 
   render() {
     return (
