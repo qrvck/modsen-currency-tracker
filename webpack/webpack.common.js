@@ -20,6 +20,11 @@ module.exports = {
       },
 
       {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+
+      {
         test: /\.(ico|png|jpg|jpeg|webp|gif)$/i,
         type: 'asset/resource',
         generator: {
