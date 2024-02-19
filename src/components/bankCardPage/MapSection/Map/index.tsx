@@ -8,6 +8,24 @@ import { MapContainer } from './styled';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoicXJ2Y2siLCJhIjoiY2xzczVidmJvMGQzZjJscXNmaTRnMHJzNSJ9.N9_Hl8i3QgNrDcABFZQb5g';
 
+const data = [
+  {
+    addressLine: 'ул. Соломовой, 82',
+    description: 'Магазин "Фламинго"',
+    geolocation: { latitude: 53.663425, longitude: 23.784927 },
+  },
+  {
+    addressLine: 'переулок Пожарный, 17-1',
+    description: 'ОАО "Банк БелВЭБ"',
+    geolocation: { latitude: 53.89827, longitude: 30.337175 },
+  },
+  {
+    addressLine: 'ул. Перспективная, 12',
+    description: 'Универсам "Славянский"',
+    geolocation: { latitude: 53.931282, longitude: 27.357094 },
+  },
+];
+
 class Map extends React.PureComponent {
   mapContainer = React.createRef<HTMLDivElement>();
 
@@ -23,11 +41,14 @@ class Map extends React.PureComponent {
       });
 
       map.on('load', () => {
-        const popup = new mapboxgl.Popup({ offset: 25 }).setText(
-          'Construction on the Washington Monument began in 1848.'
-        );
-
-        new mapboxgl.Marker().setLngLat([27.549929, 53.870007]).setPopup(popup).addTo(map);
+        for (const item of data) {
+          new mapboxgl.Marker()
+            .setLngLat([item.geolocation.longitude, item.geolocation.latitude])
+            .setPopup(
+              new mapboxgl.Popup({ offset: 25 }).setHTML(`<h3>${item.addressLine}</h3><p>${item.description}</p>`)
+            )
+            .addTo(map);
+        }
       });
     }
   }
