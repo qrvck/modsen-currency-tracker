@@ -18,18 +18,13 @@ const mapDispatchToProps = { setCurrencyTimeline };
 export const connector = connect(mapStateToProps, mapDispatchToProps);
 
 class TimelinePageComp extends React.Component<TimelinePageProps> {
-  constructor(props: TimelinePageProps) {
-    super(props);
-    this.getStatusSelectedCurrency = this.getStatusSelectedCurrency.bind(this);
-  }
-
-  getUpdateTimestamp() {
+  getUpdateTimestamp = () => {
     const { selectedCurrency, selectedDate, currencies } = this.props.currencyTimelines;
 
     if (selectedCurrency && selectedDate) {
       return currencies[selectedCurrency]![selectedDate].updateTimestamp;
     }
-  }
+  };
 
   getStatusSelectedCurrency = () => {
     const { selectedCurrency, selectedDate, currencies } = this.props.currencyTimelines;
