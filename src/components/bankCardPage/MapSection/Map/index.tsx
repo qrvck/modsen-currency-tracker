@@ -1,4 +1,3 @@
-// import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 import mapboxgl from 'mapbox-gl';
@@ -6,9 +5,10 @@ import React from 'react';
 
 import { IBankBranch } from '@/api/bankBranches/types';
 
+import { ACCESS_TOKEN } from './constants';
 import { MapContainer } from './styled';
 
-mapboxgl.accessToken = 'pk.eyJ1IjoicXJ2Y2siLCJhIjoiY2xzczVidmJvMGQzZjJscXNmaTRnMHJzNSJ9.N9_Hl8i3QgNrDcABFZQb5g';
+mapboxgl.accessToken = ACCESS_TOKEN;
 
 interface IMapProps {
   bankBranches: IBankBranch[];

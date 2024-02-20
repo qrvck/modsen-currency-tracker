@@ -4,9 +4,9 @@ import { IBankBranch } from '@/api/bankBranches/types';
 import { Container } from '@/components/common/Container';
 import { ALL_CURRENCY_IDS } from '@/constants/currency';
 
-import { Section } from '../styled';
 import { Map } from './Map';
 import { Search } from './Search';
+import { Section } from './styled';
 
 interface IMapSectionProps {
   bankBranches: IBankBranch[];
