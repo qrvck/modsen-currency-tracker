@@ -16,7 +16,7 @@ function Switcher() {
   };
 
   return (
-    <Label>
+    <Label data-testid="theme-switcher">
       <Checkbox defaultChecked={isDark} onChange={handleChangeCheckbox} />
       <Slider />
     </Label>
