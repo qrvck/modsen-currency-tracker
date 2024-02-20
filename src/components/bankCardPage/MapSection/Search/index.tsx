@@ -59,7 +59,11 @@ class Search extends React.Component<ISearchProps> {
           {this.state.isOpenSearchTips && (
             <TipList>
               {this.state.searchTips.map((tip) => (
-                <TipItem key={tip} onMouseDown={() => this.handleClickOnTipItem(tip)}>
+                <TipItem
+                  key={tip}
+                  onMouseDown={(e) => e.preventDefault()}
+                  onClick={() => this.handleClickOnTipItem(tip)}
+                >
                   {tip}
                 </TipItem>
               ))}
