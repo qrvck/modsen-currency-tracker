@@ -1,3 +1,4 @@
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { styled } from 'styled-components';
 
@@ -12,7 +13,7 @@ const Nav = styled.nav`
   }
 `;
 
-const Link = styled(NavLink)`
+const Link = styled((props: { to: string; children: string }) => <NavLink {...props} />)`
   font-size: 10px;
   font-weight: 300;
   line-height: 16px;
