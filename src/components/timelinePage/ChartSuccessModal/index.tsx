@@ -8,27 +8,21 @@ import { Text, Title, Wrapper } from './styled';
 import { IChartSuccessModalProps, IChartSuccessModalState } from './types';
 
 class ChartSuccessModal extends React.Component<IChartSuccessModalProps, IChartSuccessModalState> {
-  constructor(props: IChartSuccessModalProps) {
-    super(props);
-    this.state = {
-      isOpen: false,
-    };
-
-    this.onClose = this.onClose.bind(this);
-    this.update = this.update.bind(this);
-  }
+  state = {
+    isOpen: false,
+  };
 
   componentDidMount() {
     timelineChartObserver.subscribe('successfulCharting', this.update);
   }
 
-  onClose() {
+  onClose = () => {
     this.setState({ isOpen: false });
-  }
+  };
 
-  update() {
+  update = () => {
     this.setState({ isOpen: true });
-  }
+  };
 
   render() {
     if (this.state.isOpen) {

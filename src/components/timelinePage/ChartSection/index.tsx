@@ -19,15 +19,7 @@ const mapDispatchToProps = { setCurrencyTimeline };
 export const connector = connect(mapStateToProps, mapDispatchToProps);
 
 class ChartSectionComp extends React.PureComponent<ITimelinePageProps> {
-  constructor(props: ITimelinePageProps) {
-    super(props);
-
-    this.getTitleText = this.getTitleText.bind(this);
-    this.getTimelineDataForDisplaying = this.getTimelineDataForDisplaying.bind(this);
-    this.convertTimelineDataForTimelineChart = this.convertTimelineDataForTimelineChart.bind(this);
-  }
-
-  getTitleText() {
+  getTitleText = () => {
     const { selectedCurrency, selectedDate, currencies } = this.props.currencyTimelines;
     const loadingStatus = currencies[selectedCurrency]?.[selectedDate].loadingStatus;
     const date = selectedDate.split('-').reverse().join('-');
@@ -39,9 +31,9 @@ class ChartSectionComp extends React.PureComponent<ITimelinePageProps> {
     } else {
       return TITLE_TEXT3;
     }
-  }
+  };
 
-  getTimelineDataForDisplaying() {
+  getTimelineDataForDisplaying = () => {
     const { selectedCurrency, selectedDate, currencies } = this.props.currencyTimelines;
     const loadingStatus = currencies[selectedCurrency]?.[selectedDate].loadingStatus;
 
@@ -50,9 +42,9 @@ class ChartSectionComp extends React.PureComponent<ITimelinePageProps> {
     } else {
       return [];
     }
-  }
+  };
 
-  convertTimelineDataForTimelineChart(data: ICurrencyTimelineData[]) {
+  convertTimelineDataForTimelineChart = (data: ICurrencyTimelineData[]) => {
     return data.map(({ timestamp, price_open, price_high, price_low, price_close }) => {
       return {
         x: timestamp,
@@ -62,7 +54,7 @@ class ChartSectionComp extends React.PureComponent<ITimelinePageProps> {
         c: price_close,
       };
     });
-  }
+  };
 
   render() {
     return (

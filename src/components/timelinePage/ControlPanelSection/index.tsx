@@ -43,19 +43,11 @@ const getMaxDate = () => {
 };
 
 class ControlPanelComp extends React.Component<ControlPanelProps, ControlPanelState> {
-  constructor(props: ControlPanelProps) {
-    super(props);
-    this.state = {
-      date: this.props.currencyTimelines.selectedDate,
-      currency: this.props.currencyTimelines.selectedCurrency,
-      isOpenFixModal: false,
-    };
-
-    this.handleChangeDate = this.handleChangeDate.bind(this);
-    this.handleChangeCurrency = this.handleChangeCurrency.bind(this);
-    this.isDisableApplyButton = this.isDisableApplyButton.bind(this);
-    this.handleClickOnApplyButton = this.handleClickOnApplyButton.bind(this);
-  }
+  state = {
+    date: this.props.currencyTimelines.selectedDate,
+    currency: this.props.currencyTimelines.selectedCurrency,
+    isOpenFixModal: false,
+  };
 
   handleChangeDate = (e: ChangeEvent<HTMLInputElement>) => {
     this.setState({ date: e.target.value });

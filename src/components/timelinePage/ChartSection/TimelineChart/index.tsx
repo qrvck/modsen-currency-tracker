@@ -15,18 +15,9 @@ const timelineChartObserver = new Observer();
 Chart.register(CandlestickController, CandlestickElement, OhlcController, OhlcElement);
 
 class TimelineChart extends React.Component<ChartProps> {
-  chartRef: React.RefObject<HTMLCanvasElement>;
-  chart: IChart;
-  events: Observer;
-
-  constructor(props: ChartProps) {
-    super(props);
-    this.chartRef = React.createRef();
-    this.chart;
-    this.events = timelineChartObserver;
-
-    this.displayChart = this.displayChart.bind(this);
-  }
+  chartRef: React.RefObject<HTMLCanvasElement> = React.createRef();
+  chart: IChart | undefined;
+  events: Observer = timelineChartObserver;
 
   componentDidMount() {
     this.displayChart();
@@ -43,7 +34,7 @@ class TimelineChart extends React.Component<ChartProps> {
     }
   }
 
-  displayChart() {
+  displayChart = () => {
     if (this.chart) this.chart.destroy();
 
     const ctx = this.chartRef.current!.getContext('2d')!;
@@ -75,7 +66,7 @@ class TimelineChart extends React.Component<ChartProps> {
         },
       },
     });
-  }
+  };
 
   render() {
     return (
