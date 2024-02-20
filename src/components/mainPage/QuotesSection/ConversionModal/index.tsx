@@ -103,12 +103,17 @@ function ConversionModal({ currencyID, onClose }: IConversionModal) {
 
         <ValueDataWrapper>
           <p>{CURRENCY_SOLD_TITLE_TEXT}</p>
-          <CurrencySoldInput type="number" value={amountOfCurrencySold} onChange={handleChangeAmountOfCurrencySold} />
+          <CurrencySoldInput
+            type="number"
+            value={amountOfCurrencySold}
+            onChange={handleChangeAmountOfCurrencySold}
+            data-testid="currency-sold-input"
+          />
         </ValueDataWrapper>
 
         <ValueDataWrapper>
           <p>{OUTPUT_TITLE_TEXT}</p>
-          <output>{getOutputValue()}</output>
+          <output data-testid="currency-sold-output">{getOutputValue()}</output>
         </ValueDataWrapper>
       </Wrapper>
     </Modal>
