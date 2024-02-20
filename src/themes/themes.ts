@@ -12,6 +12,7 @@ const staticColors = {
   lime: '#aedf23',
   darkGreen: '#00bc4f',
   red: '#ff0000',
+  black: '#000000',
 };
 
 const fonts = {

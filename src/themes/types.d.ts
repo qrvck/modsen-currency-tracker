@@ -35,6 +35,7 @@ declare module 'styled-components' {
       lime: string;
       darkGreen: string;
       red: string;
+      black: string;
     };
   }
 }
