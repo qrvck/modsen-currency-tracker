@@ -5,7 +5,7 @@ import { Chart } from 'chart.js';
 import { CandlestickController, CandlestickElement, OhlcController, OhlcElement } from 'chartjs-chart-financial';
 import React from 'react';
 
-import { Observer } from '@/utils';
+import { Observer } from '@/utils/observer';
 
 import { InnerWrapper, OuterWrapper } from './styled';
 import { ChartProps, IChart } from './types';
