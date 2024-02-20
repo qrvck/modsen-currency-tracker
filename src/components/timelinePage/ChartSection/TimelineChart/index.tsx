@@ -46,12 +46,6 @@ class TimelineChart extends React.Component<ChartProps> {
         datasets: [
           {
             data: timelineData,
-            // @ts-expect-error expected error due to compatibility between chart.js and chartjs-chart-financial
-            color: {
-              up: 'rgba(80, 160, 115, 1)',
-              down: 'rgba(215, 85, 65, 1)',
-              unchanged: 'rgba(90, 90, 90, 1)',
-            },
           },
         ],
       },
