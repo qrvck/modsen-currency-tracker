@@ -158,10 +158,11 @@ class ControlPanelComp extends React.Component<ControlPanelProps, ControlPanelSt
                 disabled={this.isDisableApplyButton()}
                 onClick={this.handleClickOnApplyButton}
                 data-testid="apply-button"
+                data-cy="apply-button"
               >
                 {APPLY_BUTTON_TEXT}
               </Button>
-              <Button onClick={this.handleClickOnFixButton} disabled={this.isDisabledFixButton()}>
+              <Button onClick={this.handleClickOnFixButton} disabled={this.isDisabledFixButton()} data-cy="fix-button">
                 FIX
               </Button>
             </Wrapper>
