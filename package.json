@@ -12,7 +12,9 @@
     "lint": "eslint --fix \"./src//*.{js,ts,jsx,tsx}\"",
     "format": "prettier --write \"./src//*.{ts,tsx,json,md}\"",
     "postinstall": "husky",
-    "test": "jest"
+    "test": "jest",
+    "cypress:run": "start-server-and-test 8080 'cypress run'",
+    "cypress:open": "start-server-and-test 8080 'cypress open'"
   },
   "devDependencies": {
     "@babel/core": "^7.23.9",
@@ -39,6 +41,7 @@
     "babel-plugin-styled-components": "^2.1.4",
     "copy-webpack-plugin": "^12.0.2",
     "css-loader": "^6.10.0",
+    "cypress": "^13.6.5",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
@@ -55,6 +58,7 @@
     "prettier": "^3.2.4",
     "react-refresh": "^0.14.0",
     "react-test-renderer": "^18.2.0",
+    "start-server-and-test": "^2.0.3",
     "style-loader": "^3.3.4",
     "ts-jest": "^29.1.2",
     "typescript": "^5.3.3",

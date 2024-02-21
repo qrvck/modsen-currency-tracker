@@ -92,7 +92,7 @@ function ConversionModal({ currencyID, onClose }: IConversionModal) {
 
         <ConverterWrapper>
           <ConverterText>{CONVERTER_TEXT}</ConverterText>
-          <Select value={selectValue} onChange={handleChangeSelect}>
+          <Select value={selectValue} onChange={handleChangeSelect} data-cy="currency-select">
             {availableCurrencyForConversion.map((currency) => (
               <option value={currency} key={currency}>
                 {currency}
