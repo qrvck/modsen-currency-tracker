@@ -131,13 +131,19 @@ class ControlPanelComp extends React.Component<ControlPanelProps, ControlPanelSt
             <Wrapper>
               <div>
                 <p>{DATE_INPUT_TITLE}</p>
-                <input type="date" value={this.state.date} max={getMaxDate()} onChange={this.handleChangeDate} />
+                <input
+                  type="date"
+                  value={this.state.date}
+                  max={getMaxDate()}
+                  onChange={this.handleChangeDate}
+                  data-testid="date-input"
+                />
                 <Hint $isError={this.isInvalidDate()}>{DATE_INPUT_HINT}</Hint>
               </div>
 
               <div>
                 <p>{CURRENCY_SELECT_TITLE}</p>
-                <Select value={this.state.currency} onChange={this.handleChangeCurrency}>
+                <Select value={this.state.currency} onChange={this.handleChangeCurrency} data-testid="currency-select">
                   <option value=""></option>
                   {QUOTE_CURRENCY_IDS.map((currency) => (
                     <option key={currency} value={currency}>
@@ -148,7 +154,11 @@ class ControlPanelComp extends React.Component<ControlPanelProps, ControlPanelSt
                 <Hint>{CURRENCY_SELECT_HINT}</Hint>
               </div>
 
-              <Button disabled={this.isDisableApplyButton()} onClick={this.handleClickOnApplyButton}>
+              <Button
+                disabled={this.isDisableApplyButton()}
+                onClick={this.handleClickOnApplyButton}
+                data-testid="apply-button"
+              >
                 {APPLY_BUTTON_TEXT}
               </Button>
               <Button onClick={this.handleClickOnFixButton} disabled={this.isDisabledFixButton()}>
