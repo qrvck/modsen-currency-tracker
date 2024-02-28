@@ -3,21 +3,22 @@ import React from 'react';
 import contactImage from '@/assets/images/contact_image.jpg';
 import { Container } from '@/components/common/Container';
 
+import { CONTACTS, TITLE_TEXT } from './constants';
 import { ContactItem, Image, Section, Title } from './styled';
 
 function ContactsPage() {
   return (
     <Section>
       <Container>
-        <Title>Do you want it too? Then write and call us</Title>
-        <Image src={contactImage} alt="" />
-        <ContactItem>
-          Phone: <a href="tel:+48501157180">+48501157180</a>
-        </ContactItem>
+        <Title>{TITLE_TEXT}</Title>
+        <Image src={contactImage} alt="Scrooge McDuck" />
 
-        <ContactItem>
-          Email: <a href="http://contact@modsen-software.com">contact@modsen-software.com</a>
-        </ContactItem>
+        {CONTACTS.map(({ type, href, text }) => (
+          <ContactItem key={type}>
+            {`${type}: `}
+            <a href={href}>{text}</a>
+          </ContactItem>
+        ))}
       </Container>
     </Section>
   );
