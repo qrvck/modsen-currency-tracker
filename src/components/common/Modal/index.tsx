@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 
-import { useClickOutside } from '@/utils/hooks';
+import { useClickOutside } from '@/hooks/useClickOutside';
 import { blockPageScrolling, unblockPageScrolling } from '@/utils/index';
 
 import { Background, CloseButton, InnerBackground, ModalWrapper, Window } from './styled';
