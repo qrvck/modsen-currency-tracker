@@ -19,7 +19,7 @@ function Modal({ children, onClose }: IModal) {
     return unblockPageScrolling;
   }, []);
 
-  const appRoot = useMemo(() => document.querySelector('#root')!, []);
+  const appRoot = useMemo(() => document.querySelector('#root'), []);
 
   const modalElements = (
     <Background>
@@ -31,7 +31,11 @@ function Modal({ children, onClose }: IModal) {
     </Background>
   );
 
-  return ReactDOM.createPortal(modalElements, appRoot);
+  if (appRoot) {
+    return ReactDOM.createPortal(modalElements, appRoot);
+  } else {
+    return null;
+  }
 }
 
 export { Modal };
