@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, Component } from 'react';
 import { connect } from 'react-redux';
 
 import { Modal } from '@/components/common/Modal';
@@ -27,7 +27,7 @@ const mapDispatchToProps = {
 };
 export const connector = connect(mapStateToProps, mapDispatchToProps);
 
-class FixModalComp extends React.Component<IFixModalProps, IFixModalState> {
+class FixModalComp extends Component<IFixModalProps, IFixModalState> {
   state = {
     selectedDateIndex: 0,
     priceClose: this.props.timelineData[0].price_close,

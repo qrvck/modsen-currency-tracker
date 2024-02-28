@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import { Modal } from '@/components/common/Modal';
 
@@ -7,7 +7,7 @@ import { TEXT_1, TEXT_2, TITLE_TEXT } from './constants';
 import { Text, Title, Wrapper } from './styled';
 import { IChartSuccessModalProps, IChartSuccessModalState } from './types';
 
-class ChartSuccessModal extends React.Component<IChartSuccessModalProps, IChartSuccessModalState> {
+class ChartSuccessModal extends Component<IChartSuccessModalProps, IChartSuccessModalState> {
   state = {
     isOpen: false,
   };

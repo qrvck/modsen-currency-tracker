@@ -1,7 +1,7 @@
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 import mapboxgl from 'mapbox-gl';
-import React from 'react';
+import React, { createRef, PureComponent } from 'react';
 
 import { IBankBranch } from '@/api/bankBranches/types';
 
@@ -13,8 +13,8 @@ interface IMapProps {
   bankBranches: IBankBranch[];
 }
 
-class Map extends React.PureComponent<IMapProps> {
-  mapContainer = React.createRef<HTMLDivElement>();
+class Map extends PureComponent<IMapProps> {
+  mapContainer = createRef<HTMLDivElement>();
   map: mapboxgl.Map | null = null;
   mapboxMarkers: mapboxgl.Marker[] = [];
 

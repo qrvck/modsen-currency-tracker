@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, Component, createRef } from 'react';
 
 import sprite from '@/assets/icons/sprite.svg';
 import { ALL_CURRENCY_IDS } from '@/constants/currency';
@@ -6,14 +6,14 @@ import { ALL_CURRENCY_IDS } from '@/constants/currency';
 import { InputWrapper, SearchInput, Svg, TipItem, TipList, Wrapper } from './styled';
 import { ISearchProps } from './types';
 
-class Search extends React.Component<ISearchProps> {
+class Search extends Component<ISearchProps> {
   state = {
     isOpenSearchTips: false,
     searchTips: [...ALL_CURRENCY_IDS],
     searchValue: '',
   };
 
-  inputWrapperRef = React.createRef<HTMLDivElement>();
+  inputWrapperRef = createRef<HTMLDivElement>();
 
   handleChangeSeachInput = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;

@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, Component } from 'react';
 import { connect } from 'react-redux';
 
 import { getCurrencyTimeline } from '@/api/currencyTimeline';
@@ -42,7 +42,7 @@ const getMaxDate = () => {
   return convertTimestampToStringDate(timestamp29DaysAgo);
 };
 
-class ControlPanelComp extends React.Component<ControlPanelProps, ControlPanelState> {
+class ControlPanelComp extends Component<ControlPanelProps, ControlPanelState> {
   state = {
     date: this.props.currencyTimelines.selectedDate,
     currency: this.props.currencyTimelines.selectedCurrency,

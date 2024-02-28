@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { UpdateStatus } from '@/components/common/UpdateStatus';
@@ -17,7 +17,7 @@ const mapStateToProps = (state: IRootState) => ({
 const mapDispatchToProps = { setCurrencyTimeline };
 export const connector = connect(mapStateToProps, mapDispatchToProps);
 
-class TimelinePageComp extends React.Component<TimelinePageProps> {
+class TimelinePageComp extends Component<TimelinePageProps> {
   getUpdateTimestamp = () => {
     const { selectedCurrency, selectedDate, currencies } = this.props.currencyTimelines;
 

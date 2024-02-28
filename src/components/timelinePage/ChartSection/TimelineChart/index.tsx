@@ -3,7 +3,7 @@ import 'chartjs-adapter-luxon';
 
 import { Chart } from 'chart.js';
 import { CandlestickController, CandlestickElement, OhlcController, OhlcElement } from 'chartjs-chart-financial';
-import React from 'react';
+import React, { Component, createRef, RefObject } from 'react';
 
 import { Observer } from '@/utils/observer';
 
@@ -14,8 +14,8 @@ const timelineChartObserver = new Observer();
 
 Chart.register(CandlestickController, CandlestickElement, OhlcController, OhlcElement);
 
-class TimelineChart extends React.Component<ChartProps> {
-  chartRef: React.RefObject<HTMLCanvasElement> = React.createRef();
+class TimelineChart extends Component<ChartProps> {
+  chartRef: RefObject<HTMLCanvasElement> = createRef();
   chart: IChart | undefined;
   events: Observer = timelineChartObserver;
 

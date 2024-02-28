@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
 import { ICurrencyTimelineData } from '@/api/currencyTimeline/types';
@@ -18,7 +18,7 @@ const mapStateToProps = (state: IRootState) => ({
 const mapDispatchToProps = { setCurrencyTimeline };
 export const connector = connect(mapStateToProps, mapDispatchToProps);
 
-class ChartSectionComp extends React.PureComponent<ITimelinePageProps> {
+class ChartSectionComp extends PureComponent<ITimelinePageProps> {
   getTitleText = () => {
     const { selectedCurrency, selectedDate, currencies } = this.props.currencyTimelines;
     const loadingStatus = currencies[selectedCurrency]?.[selectedDate].loadingStatus;
