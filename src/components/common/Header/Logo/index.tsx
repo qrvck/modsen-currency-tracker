@@ -1,13 +1,13 @@
 import React from 'react';
 
 import logoImg from '@/assets/icons/logo.svg';
-import { RoutPathEnum } from '@/constants/routing';
+import { MAIN_PAGE_PATH } from '@/constants/routing';
 
 import { Img, Link } from './styled';
 
 function Logo() {
   return (
-    <Link to={RoutPathEnum.MAIN_PAGE}>
+    <Link to={MAIN_PAGE_PATH}>
       <Img src={logoImg} alt="Currency Tracker" />
     </Link>
   );
