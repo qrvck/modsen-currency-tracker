@@ -5,9 +5,9 @@ import { BrowserRouter } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import App from './App';
+import { ThemeProvider } from './Providers/ThemeProvider';
 import { persistor, store } from './store';
 import { GlobalStyles } from './styles';
-import { ThemeProvider } from './Providers/ThemeProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 

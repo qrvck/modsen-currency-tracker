@@ -8,7 +8,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Navigation } from '../../../src/components/common/Header/Navigation';
 import { BANK_CARD_LINK_TEXT } from '../../../src/components/common/Header/Navigation/constants';
 import { BANK_CARD_PAGE_PATH } from '../../../src/constants/routing';
-import { ThemeProvider } from '../../../src/themes/ThemeProvider';
+import { ThemeProvider } from '../../../src/Providers/ThemeProvider';
 import { CLASSNAME_ACTIVE_LINK } from './search.test.mock';
 
 jest.mock('react-redux', () => ({

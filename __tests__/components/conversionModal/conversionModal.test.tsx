@@ -10,7 +10,7 @@ import {
   SUBTITLE_PART_1,
   SUBTITLE_PART_2,
 } from '../../../src/components/mainPage/QuotesSection/ConversionModal/constants';
-import { ThemeProvider } from '../../../src/themes/ThemeProvider';
+import { ThemeProvider } from '../../../src/Providers/ThemeProvider';
 import {
   CURRENCY_ID_PROPS,
   CURRENCY_SOLD_INPUT_CHANGE_VALUE,

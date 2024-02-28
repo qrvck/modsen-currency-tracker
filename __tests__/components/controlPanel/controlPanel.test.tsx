@@ -5,7 +5,7 @@ import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
 
 import { ControlPanel } from '../../../src/components/timelinePage/ControlPanelSection';
-import { ThemeProvider } from '../../../src/themes/ThemeProvider';
+import { ThemeProvider } from '../../../src/Providers/ThemeProvider';
 import {
   APPLY_BUTTON_DATA_TEST_ID,
   APPLY_BUTTON_TEXT,

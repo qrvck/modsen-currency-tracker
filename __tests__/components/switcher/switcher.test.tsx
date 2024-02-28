@@ -5,7 +5,7 @@ import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
 
 import { Switcher } from '../../../src/components/common/Header/Switcher';
-import { ThemeProvider } from '../../../src/themes/ThemeProvider';
+import { ThemeProvider } from '../../../src/Providers/ThemeProvider';
 import { SWITCHER_DATA_TEST_ID } from './switcher.test.mock';
 
 const mockUpdateIsDarkFn = jest.fn();
