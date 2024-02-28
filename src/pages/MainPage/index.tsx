@@ -8,13 +8,15 @@ import { IRootState } from '@/store';
 import { setCurrentRates } from '@/store/slices/currentRatesSlice';
 import { isRelevantData } from '@/utils';
 
+import { IStatusState } from './types';
+
 function getInitialStatusState(timestamp: number) {
   return isRelevantData(timestamp) ? 'updated' : 'updating';
 }
 
 function MainPage() {
   const { currencies, updateTimestamp } = useSelector((store: IRootState) => store.currentRates);
-  const [status, setStatus] = useState<'updated' | 'updating' | 'error'>(() => getInitialStatusState(updateTimestamp));
+  const [status, setStatus] = useState<IStatusState>(() => getInitialStatusState(updateTimestamp));
   const dispatch = useDispatch();
 
   useEffect(() => {

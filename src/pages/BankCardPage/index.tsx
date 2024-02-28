@@ -7,11 +7,13 @@ import { UpdateStatus } from '@/components/common/UpdateStatus';
 import { IRootState } from '@/store';
 import { setBankBranches } from '@/store/slices/bankBranchesSlice';
 
+import { IStatusState } from './types';
+
 function BankCardPage() {
   const { bankBranches, updateTimestamp } = useSelector((store: IRootState) => store.bankBranches);
   const dispatch = useDispatch();
 
-  const [status, setStatus] = useState<'updating' | 'updated' | 'error'>(bankBranches.length ? 'updated' : 'updating');
+  const [status, setStatus] = useState<IStatusState>(bankBranches.length ? 'updated' : 'updating');
 
   useEffect(() => {
     const loadBankBranches = async () => {
