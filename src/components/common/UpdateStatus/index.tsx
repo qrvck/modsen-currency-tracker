@@ -1,11 +1,11 @@
-import React, { useMemo } from 'react';
+import React, { memo, useMemo } from 'react';
 
 import { Container } from '../Container';
-import { ERROR_MESSAGE, UPDATE_MESSAGE, UPDATED_MESSAGE } from './constants';
+import { EMPTY_UPDATE_TIME_PLACEHOLDER, ERROR_MESSAGE, UPDATE_MESSAGE, UPDATED_MESSAGE } from './constants';
 import { StatusCircle, StatusText, Wrapper } from './styles';
 import { IUpdateStatus } from './types';
 
-function UpdateStatus({ status, timestamp }: IUpdateStatus) {
+const UpdateStatus = memo(function UpdateStatus({ status, timestamp }: IUpdateStatus) {
   const time = useMemo(() => {
     if (timestamp) {
       const updateTime = new Date(timestamp);
@@ -13,7 +13,7 @@ function UpdateStatus({ status, timestamp }: IUpdateStatus) {
 
       return `${updateTime.getHours()}:${minutes}`;
     } else {
-      return '--:--';
+      return EMPTY_UPDATE_TIME_PLACEHOLDER;
     }
   }, [timestamp]);
 
@@ -31,6 +31,6 @@ function UpdateStatus({ status, timestamp }: IUpdateStatus) {
       </Container>
     </section>
   );
-}
+});
 
 export { UpdateStatus };
