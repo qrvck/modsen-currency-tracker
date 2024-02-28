@@ -1,24 +1,26 @@
+const TEMPORARY_PLACEHOLDER_PATH = '/';
+
 const NAV_LIST_1 = {
   title: 'General',
   links: [
-    { name: 'Market', path: '/' },
-    { name: 'Service', path: '/' },
+    { name: 'Market', path: TEMPORARY_PLACEHOLDER_PATH },
+    { name: 'Service', path: TEMPORARY_PLACEHOLDER_PATH },
   ],
 };
 
 const NAV_LIST_2 = {
   title: 'Product',
   links: [
-    { name: 'Sparks', path: '/' },
-    { name: 'Snaps', path: '/' },
+    { name: 'Sparks', path: TEMPORARY_PLACEHOLDER_PATH },
+    { name: 'Snaps', path: TEMPORARY_PLACEHOLDER_PATH },
   ],
 };
 
 const NAV_LIST_3 = {
   title: 'Community',
   links: [
-    { name: 'Ideas', path: '/' },
-    { name: 'Streams', path: '/' },
+    { name: 'Ideas', path: TEMPORARY_PLACEHOLDER_PATH },
+    { name: 'Streams', path: TEMPORARY_PLACEHOLDER_PATH },
   ],
 };
 
