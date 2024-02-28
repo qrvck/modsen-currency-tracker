@@ -5,10 +5,9 @@ import React from 'react';
 
 import { IBankBranch } from '@/api/bankBranches/types';
 
-import { ACCESS_TOKEN } from './constants';
 import { MapContainer } from './styled';
 
-mapboxgl.accessToken = ACCESS_TOKEN;
+mapboxgl.accessToken = process.env.MAP_API_TOKEN || '';
 
 interface IMapProps {
   bankBranches: IBankBranch[];

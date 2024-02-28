@@ -14,3 +14,4 @@
 
 build
 stats.json
+/.env
