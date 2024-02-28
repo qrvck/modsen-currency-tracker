@@ -20,7 +20,7 @@ function Intro() {
             </SubTitle>
           </TextWrapper>
 
-          <Img src={logo} alt="" />
+          <Img src={logo} alt="Currency Tracker" />
         </Wrapper>
       </Container>
     </Section>
