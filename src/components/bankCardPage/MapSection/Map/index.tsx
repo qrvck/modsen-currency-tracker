@@ -3,15 +3,17 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl';
 import React, { createRef, PureComponent } from 'react';
 
-import { IBankBranch } from '@/api/bankBranches/types';
-
+import {
+  INITIAL_ZOOM_OF_MAP,
+  LATITUDE_OF_INITIAL_MAP_CENTER,
+  LONGITUDE_OF_INITIAL_MAP_CENTER,
+  MAP_STYLE_LINK,
+} from './constants';
 import { MapContainer } from './styled';
 
 mapboxgl.accessToken = process.env.MAP_API_TOKEN || '';
 
-interface IMapProps {
-  bankBranches: IBankBranch[];
-}
+import { IMapProps } from './types';
 
 class Map extends PureComponent<IMapProps> {
   mapContainer = createRef<HTMLDivElement>();
@@ -24,9 +26,9 @@ class Map extends PureComponent<IMapProps> {
     if (mapContainer && !mapContainer.childNodes.length) {
       const map = new mapboxgl.Map({
         container: mapContainer,
-        style: 'mapbox://styles/mapbox/streets-v12',
-        center: [27.561831, 53.902284],
-        zoom: 5,
+        style: MAP_STYLE_LINK,
+        center: [LONGITUDE_OF_INITIAL_MAP_CENTER, LATITUDE_OF_INITIAL_MAP_CENTER],
+        zoom: INITIAL_ZOOM_OF_MAP,
       });
 
       this.map = map;
@@ -75,7 +77,7 @@ class Map extends PureComponent<IMapProps> {
   render() {
     return (
       <div>
-        <MapContainer ref={this.mapContainer} className="map-container" />
+        <MapContainer ref={this.mapContainer} />
       </div>
     );
   }
