@@ -22,7 +22,6 @@ class MapSection extends Component<IMapSectionProps> {
   };
 
   getCurrentBankBranches = () => {
-    console.log(this.state.searchTips);
     return this.props.bankBranches.filter(({ availableCurrency }) => this.state.searchTips.includes(availableCurrency));
   };
 
