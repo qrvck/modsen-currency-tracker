@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Component, createRef } from 'react';
+import React, { ChangeEvent, Component, createRef, MouseEvent } from 'react';
 
 import sprite from '@/assets/icons/sprite.svg';
 import { ALL_CURRENCY_IDS } from '@/constants/currency';
@@ -37,8 +37,12 @@ class Search extends Component<ISearchProps> {
     this.setState({ isOpenSearchTips: true });
   };
 
-  handleOnBlurSearchInput = () => {
+  handleBlurSearchInput = () => {
     this.setState({ isOpenSearchTips: false });
+  };
+
+  handleMouseDownOnTipItem = (e: MouseEvent<HTMLLIElement>) => {
+    e.preventDefault();
   };
 
   render() {
@@ -50,7 +54,7 @@ class Search extends Component<ISearchProps> {
             value={this.state.searchValue}
             onChange={this.handleChangeSeachInput}
             onFocus={this.handleFocusOnSearchInput}
-            onBlur={this.handleOnBlurSearchInput}
+            onBlur={this.handleBlurSearchInput}
           />
           <Svg>
             <use href={sprite + '#search'} />
@@ -61,8 +65,8 @@ class Search extends Component<ISearchProps> {
               {this.state.searchTips.map((tip) => (
                 <TipItem
                   key={tip}
-                  onMouseDown={(e) => e.preventDefault()}
-                  onClick={() => this.handleClickOnTipItem(tip)}
+                  onMouseDown={this.handleMouseDownOnTipItem}
+                  onClick={this.handleClickOnTipItem.bind(this, tip)}
                 >
                   {tip}
                 </TipItem>
