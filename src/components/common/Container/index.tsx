@@ -4,7 +4,7 @@ import { Box } from './styled';
 import { IContainer } from './types';
 
 function Container({ children }: IContainer) {
-  return children ? <Box>{children}</Box> : null;
+  return <Box>{children}</Box>;
 }
 
 export { Container };
