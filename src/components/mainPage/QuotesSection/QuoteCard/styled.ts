@@ -11,7 +11,7 @@ const Card = styled.button`
 
   background-color: ${({ theme }) => theme.colors.inverted.ninth};
   border: 1px solid ${({ theme }) => theme.colors.inverted.fourth};
-  border-radius: 3px;
+  border-radius: ${({ theme }) => theme.sizes.borderRadius.sm};
 
   &:hover {
     opacity: 0.7;
@@ -31,7 +31,7 @@ const Card = styled.button`
 
   @media (${({ theme }) => theme.media.medium}) {
     width: 100%;
-    border-radius: 8px;
+    border-radius: ${({ theme }) => theme.sizes.borderRadius.md};
 
     &:not(:first-child) {
       margin-top: 56px;
@@ -80,12 +80,12 @@ const Rate = styled.p`
 const Icon = styled.svg`
   width: 30px;
   height: 30px;
-  border-radius: 3px;
+  border-radius: ${({ theme }) => theme.sizes.borderRadius.sm};
 
   @media (${({ theme }) => theme.media.medium}) {
     width: 80px;
     height: 80px;
-    border-radius: 8px;
+    border-radius: ${({ theme }) => theme.sizes.borderRadius.md};
   }
 `;
 

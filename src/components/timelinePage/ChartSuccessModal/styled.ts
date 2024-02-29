@@ -2,11 +2,11 @@ import { styled } from 'styled-components';
 
 const Wrapper = styled.div`
   width: 306px;
-  padding: 20px;
+  padding: ${({ theme }) => theme.sizes.padding.sm};
 
   @media (${({ theme }) => theme.media.medium}) {
     width: 700px;
-    padding: 60px 40px;
+    padding: ${({ theme }) => theme.sizes.padding.md};
   }
 `;
 

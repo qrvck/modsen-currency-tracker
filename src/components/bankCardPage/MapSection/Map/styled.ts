@@ -7,7 +7,7 @@ const MapContainer = styled.div`
   color: ${({ theme }) => theme.colors.black};
 
   & .mapboxgl-popup-close-button {
-    padding: 0 6px;
+    padding: 0 ${({ theme }) => theme.sizes.padding.xs};
     color: ${({ theme }) => theme.colors.black};
   }
 `;

@@ -2,12 +2,12 @@ import { styled } from 'styled-components';
 
 const Wrapper = styled.div`
   width: 250px;
-  padding: 20px;
+  padding: ${({ theme }) => theme.sizes.padding.sm};
   text-align: center;
 
   @media (${({ theme }) => theme.media.medium}) {
     width: 550px;
-    padding: 35px;
+    padding: ${({ theme }) => theme.sizes.padding.md};
   }
 `;
 
@@ -27,12 +27,12 @@ const Subtitle = styled.p`
 `;
 
 const ConverterWrapper = styled.div`
-  padding: 10px 0;
+  padding: ${({ theme }) => theme.sizes.padding.xs} 0;
   display: flex;
   justify-content: center;
 
   @media (${({ theme }) => theme.media.medium}) {
-    padding: 20px 0;
+    padding: ${({ theme }) => theme.sizes.padding.sm} 0;
   }
 `;
 

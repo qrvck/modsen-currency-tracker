@@ -46,7 +46,7 @@ const Window = styled.div`
   position: relative;
   margin: 25px;
   background-color: ${({ theme }) => theme.colors.inverted.ninth};
-  border-radius: 8px;
+  border-radius: ${({ theme }) => theme.sizes.borderRadius.md};
   border: 1px solid ${({ theme }) => theme.colors.inverted.fourth};
 
   @media (${({ theme }) => theme.media.medium}) {
@@ -89,7 +89,7 @@ const CloseButton = styled.button`
     height: 4px;
 
     background-color: ${({ theme }) => theme.colors.inverted.first};
-    border-radius: 3px;
+    border-radius: ${({ theme }) => theme.sizes.borderRadius.sm};
 
     transform: rotate(45deg);
   }

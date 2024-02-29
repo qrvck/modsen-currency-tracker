@@ -20,11 +20,28 @@ const fonts = {
   secondary: 'Inter, sans-serif',
 };
 
+const sizes = {
+  padding: {
+    xxl: '100px',
+    xl: '80px',
+    lg: '60px',
+    md: '40px',
+    sm: '16px',
+    xs: '8px',
+  },
+
+  borderRadius: {
+    md: '8px',
+    sm: '3px',
+  },
+};
+
 const darkTheme = {
   isDark: true,
 
   media,
   fonts,
+  sizes,
 
   colors: {
     inverted: {
@@ -48,6 +65,7 @@ const lightTheme = {
 
   media,
   fonts,
+  sizes,
 
   colors: {
     inverted: {

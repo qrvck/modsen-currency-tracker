@@ -17,6 +17,22 @@ declare module 'styled-components' {
       secondary: string;
     };
 
+    sizes: {
+      padding: {
+        xxl: string;
+        xl: string;
+        lg: string;
+        md: string;
+        sm: string;
+        xs: string;
+      };
+
+      borderRadius: {
+        md: string;
+        sm: string;
+      };
+    };
+
     colors: {
       inverted: {
         first: string;

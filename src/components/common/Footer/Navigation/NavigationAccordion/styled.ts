@@ -8,7 +8,7 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.p`
-  padding: 15px 0;
+  padding: ${({ theme }) => theme.sizes.padding.sm} 0;
 
   font-size: 16px;
   line-height: 24px;
@@ -18,7 +18,7 @@ const Title = styled.p`
 
 const Link = styled(RouterLink)`
   display: block;
-  padding: 8px 0;
+  padding: ${({ theme }) => theme.sizes.padding.xs} 0;
   color: ${({ theme }) => theme.colors.inverted.sixth};
 
   & + & {

@@ -30,7 +30,7 @@ const SearchInput = styled.input.attrs({ type: 'text', placeholder: 'Сurrency s
   font-size: 18px;
   color: ${({ theme }) => theme.colors.inverted.seventh};
   background-color: ${({ theme }) => theme.colors.inverted.eighth};
-  border-radius: 8px;
+  border-radius: ${({ theme }) => theme.sizes.borderRadius.md};
   border: none;
 
   @media (${({ theme }) => theme.media.medium}) {
@@ -57,7 +57,7 @@ const TipList = styled.ul`
   right: 0;
   top: 40px;
 
-  border-radius: 8px;
+  border-radius: ${({ theme }) => theme.sizes.borderRadius.md};
   background-color: ${({ theme }) => theme.colors.inverted.eighth};
   box-shadow: 0px 7px 8px 0px ${({ theme }) => theme.colors.inverted.fourth};
   z-index: 5;
@@ -71,7 +71,7 @@ const TipItem = styled.li`
   padding: 14px;
   font-size: 18px;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: ${({ theme }) => theme.sizes.borderRadius.md};
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.inverted.fourth};

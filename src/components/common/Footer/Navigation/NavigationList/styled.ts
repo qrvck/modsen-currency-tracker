@@ -41,7 +41,7 @@ const LinkWrapper = styled.div`
 
 const Link = styled(RouterLink)`
   display: block;
-  padding: 8px 0;
+  padding: ${({ theme }) => theme.sizes.padding.xs} 0;
   color: ${({ theme }) => theme.colors.inverted.sixth};
 
   &:hover {
